@@ -9,7 +9,7 @@ AI接入：尝试ChatGPT （Inworld AI无中文）
 - src   项目工程存放（程序、美术）
 - tools 测试功能时写的一些工具等（垂直组）
 
-![](asset\Markdown/001.png)
+![](asset/Markdown/001.png)
 
 版本管理：[Git](https://git-scm.com/downloads) （gitee）
 
