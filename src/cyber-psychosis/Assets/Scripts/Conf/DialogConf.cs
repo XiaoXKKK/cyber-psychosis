@@ -1,18 +1,11 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogConf : MonoBehaviour
+[CreateAssetMenu(fileName = "对话配置", menuName = "对话配置/新增对话数据")]
+public class DialogConf : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [ListDrawerSettings(ShowIndexLabels = true, AddCopiesLastElement = true)]
+    public List<DialogModel> dialogs;
 }

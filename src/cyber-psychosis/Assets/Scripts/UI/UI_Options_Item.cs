@@ -10,6 +10,8 @@ public class UI_Options_Item : MonoBehaviour,IPointerEnterHandler,IPointerExitHa
     private Text text;
     private bool isSelect;
 
+    private DialogPlayerSelect dialogPlayerSelect;
+
     private Color blackColor = new Color(0, 0, 0, 0.6f);
     private Color whiteColor = new Color(1, 1, 1, 0.6f);
     public bool IsSelect { 
@@ -44,15 +46,18 @@ public class UI_Options_Item : MonoBehaviour,IPointerEnterHandler,IPointerExitHa
 
     public void OnPointerClick(PointerEventData eventData)
     {
-
-
+        foreach(var item in dialogPlayerSelect.DialogEventModels)
+        {
+            UI_Dialog.Instance.ParseDialogEvent(item.DialogEvent, item.Args);
+        }
     }
 
-    public void Init(string txt)
+    public void Init(DialogPlayerSelect model)
     {
         image = GetComponent<Image>();
         text = transform.Find("Text").GetComponent<Text>();
-        text.text = txt;
+        dialogPlayerSelect = model;
+        text.text = model.Content;
 
         IsSelect = false;
 

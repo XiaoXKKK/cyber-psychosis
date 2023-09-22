@@ -1,18 +1,13 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCConf : MonoBehaviour
+[CreateAssetMenu(fileName = "NPC配置", menuName = "角色配置/新增角色")]
+public class NPCConf : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [HorizontalGroup("NPC", 75, LabelWidth = 50), HideLabel, PreviewField(75)]
+    public Sprite Head;
+    [VerticalGroup("NPC/NPCField"), LabelText("名称")]
+    public string Name;
 }
