@@ -14,6 +14,7 @@ public class UI_Dialog : MonoBehaviour
     private RectTransform content;
     private Transform Options;
     private GameObject prefab_OptionItem;
+    private GameObject input;
 
     private DialogConf currconf;
     private int currindex;
@@ -28,6 +29,7 @@ public class UI_Dialog : MonoBehaviour
         head = transform.Find("Main/Head").GetComponent<Image>();
         nameText = transform.Find("Main/Name").GetComponent<Text>();
         ui_Click = transform.Find("Main/Scroll View").GetComponent<UI_Click>();
+        input = transform.Find("Main/Input").gameObject;
         //mainText = transform.Find("Main/MainText").GetComponent<Text>();
         mainText = transform.Find("Main/Scroll View/Viewport/Content/MainText").GetComponent<Text>();
         content = transform.Find("Main/Scroll View/Viewport/Content").GetComponent<RectTransform>();
@@ -37,10 +39,10 @@ public class UI_Dialog : MonoBehaviour
     }
 
    
-
-    /// <summary>
-    /// 开始对话
-    /// </summary>
+    public void SaySth(string txt)
+    {
+        StartCoroutine(DoMainTextEF(txt));
+    }
     private void TestDialog()
     {
         // StartCoroutine(DoMainTextEF("这是一个测试文字~~~~~~~~~~~~~~~~"));
@@ -93,7 +95,8 @@ public class UI_Dialog : MonoBehaviour
 
     public void ParseDialogEvent(DialogEventEnum dialogEvent, string args)
     {
-        switch(dialogEvent)
+        input.SetActive(false);
+        switch (dialogEvent)
         {
             case DialogEventEnum.NextDialog:
                 NextDialogEvent();
@@ -104,13 +107,19 @@ public class UI_Dialog : MonoBehaviour
             case DialogEventEnum.JumpDialog:
                 JumpDialogEvent(int.Parse(args));
                 break;
+            case DialogEventEnum.AIDialog:
+                AIDialogEvent();
+                break;
             case DialogEventEnum.ScreenEF:
                 GameManager.Instance.ScreenEF(float.Parse(args));
                 break;
         }
     }
 
-
+    private void AIDialogEvent()
+    {
+        input.SetActive(true);
+    }
     private void NextDialogEvent()
     {
         currindex += 1;

@@ -36,6 +36,8 @@ public enum DialogEventEnum
     ExitDialog,
     [LabelText("跳转对话")]
     JumpDialog,
+    [LabelText("AI对话")]
+    AIDialog,
     [LabelText("屏幕效果")]
     ScreenEF
 }
