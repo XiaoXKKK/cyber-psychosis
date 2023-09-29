@@ -13,12 +13,21 @@ curl https://api.openai-proxy.com/v1/chat/completions \
 import socket
 import sys
 import os
-from gpt_moreres import ChatGPT
+import http.client
+import json
 
 HOST = '127.0.0.1'
 PORT = 31415
 
-chat = ChatGPT('user')
+conn = http.client.HTTPConnection("api.openai-proxy.com")
+playload = json.dumps({
+    "model": "gpt-3.5-turbo",
+    "messages": [{"role": "user", "content": "你好呀!"}]
+})
+headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer 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'
+}
 
 with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
 
@@ -32,5 +41,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
             print(data.decode('utf-8'))
             # chat.messages.append({"role": "user", "content": data.decode()})
             # answer = chat.ask_gpt()
-            answer = "今天天气真不错"
-            print(f"[ChatGPT]{answer}")
+            conn.request("POST", "/v1/chat/completions", playload, headers)
+            res = conn.getresponse()
+            data = res.read().decode()
+            print(data)
+            print(f"[ChatGPT]{data}")
