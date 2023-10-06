@@ -4,8 +4,8 @@ import os
 
 # 目前需要设置代理才可以访问 api
 #os.environ["HTTP_PROXY"] = "代理地址"
-os.environ["http_proxy"] = "http://localhost:7890"
-os.environ["https_proxy"] = "http://localhost:7890"
+
+openai.api_base = "http://api.openai-proxy.com/v1"
 
 
 def get_api_key():
