@@ -5,6 +5,8 @@ import os
 #os.environ["HTTP_PROXY"] = "代理地址"
 #os.environ["HTTPS_PROXY"] = "代理地址"
 
+openai.api_base = "https://api.chatanywhere.com.cn/v1/"
+
 # 获取 api
 def get_api_key():
     # 存在一个 openai_key 文件里，json 格式

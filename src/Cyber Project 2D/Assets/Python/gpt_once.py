@@ -5,7 +5,7 @@ import os
 # 目前需要设置代理才可以访问 api
 #os.environ["HTTP_PROXY"] = "代理地址"
 
-openai.api_base = "http://api.openai-proxy.com/v1"
+openai.api_base = "https://api.chatanywhere.com.cn/v1/"
 
 
 def get_api_key():

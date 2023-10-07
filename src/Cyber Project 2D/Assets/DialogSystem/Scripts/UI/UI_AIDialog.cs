@@ -12,20 +12,18 @@ using UnityEngine.UI;
 
 public class UI_AIDialog : MonoBehaviour
 {
-
     private ProcessStartInfo startInfo;
     private Process process;
 
     private UdpClient udpClient;
     private IPEndPoint remoteEP;
 
-    private Text input;
+    private InputField input;
 
     // Start is called before the first frame update
     void Start()
     {
-        input = transform.Find("InputField/Text").GetComponent<Text>();
-        UnityEngine.Debug.Log(transform.Find("InputField/Text"));
+        input = transform.Find("InputField").GetComponent<InputField>();
 
         Kill_All_Python_Process();
 
@@ -33,13 +31,40 @@ public class UI_AIDialog : MonoBehaviour
         udpClient = new UdpClient();
         // 设置IP地址与端口号
         remoteEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 31415);
+
+        UDPManager manager = GetComponent<UDPManager>();
+        if (manager == null)
+        {
+            manager = gameObject.AddComponent<UDPManager>();
+        }
+        //设置好解析的方法
+        manager.SetReceiveCallBack(ReceiveUDPMessage);
+
+        StartSubProcess();
+    }
+
+    void ReceiveUDPMessage(string receiveData)
+    {
+        //接下来就看自己如何解析了
+        UnityEngine.Debug.Log(receiveData);
+        UI_Dialog.Instance.SaySth(receiveData);
+    }
+
+    void Update()
+    {
+
+    }
+
+
+    private void StartSubProcess()
+    {
         // 运行python的文件名
         string fileName = "gpt_test.py";
         // 获取Unity项目的数据路径
         string dataPath = Application.dataPath;
         // 拼接Python文件的完整路径
         string pythonPath = dataPath + "/" + "Python";
-        string fullPath =  pythonPath + "/" + fileName;
+        string fullPath = pythonPath + "/" + fileName;
         // 设置命令行参数
         string command = "/c python \"" + fullPath + "\"";
 
@@ -53,24 +78,15 @@ public class UI_AIDialog : MonoBehaviour
         startInfo.Arguments = command;
         // 因为嵌入Unity中后台使用，所以设置不显示窗口
         startInfo.CreateNoWindow = true;
-        // 这里需要设定为false
+        // 这里需要设定为false（使用CreateProcess创建进程）
         startInfo.UseShellExecute = false;
-        // 设置重定向这个进程的标准输出流，用于直接被Unity C#捕获，从而实现 Python -> Unity 的通信
-        startInfo.RedirectStandardOutput = true;
-        // 设置重定向这个进程的标准报错流，用于在Unity的C#中进行Debug Python里的bug
-        startInfo.RedirectStandardError = true;
 
         // 创建Process
         process = new Process();
         process.StartInfo = startInfo;
-        process.OutputDataReceived += new DataReceivedEventHandler(OnOutputDataReceived);
-        process.ErrorDataReceived += new DataReceivedEventHandler(OnErrorDataReceived);
 
         //启动脚本Process，并且激活逐行读取输出与报错
         process.Start();
-        process.BeginErrorReadLine();
-        process.BeginOutputReadLine();
-
     }
 
     public void Send()
@@ -78,29 +94,6 @@ public class UI_AIDialog : MonoBehaviour
         UnityEngine.Debug.Log(input.text);
         byte[] message = Encoding.UTF8.GetBytes(input.text);
         udpClient.Send(message, message.Length, remoteEP);
-    }
-
-    private void OnOutputDataReceived(object sender, DataReceivedEventArgs e)
-    {
-        UnityEngine.Debug.Log("Received!");
-        if (!string.IsNullOrEmpty(e.Data))
-        {
-            string output = e.Data;
-            UnityEngine.Debug.Log(output);
-            if (output.Contains("[ChatGPT]"))
-            {
-                UI_Dialog.Instance.SaySth(output.Split(']')[1]);
-            }
-        }
-    }
-
-    private void OnErrorDataReceived(object sender, DataReceivedEventArgs e)
-    {
-        if (!string.IsNullOrEmpty(e.Data))
-        {
-            // 调试语句
-            UnityEngine.Debug.LogError("Received error output: " + e.Data);
-        }
     }
 
     void Kill_All_Python_Process()

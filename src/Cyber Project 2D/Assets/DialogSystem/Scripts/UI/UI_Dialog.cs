@@ -35,7 +35,7 @@ public class UI_Dialog : MonoBehaviour
         content = transform.Find("Main/Scroll View/Viewport/Content").GetComponent<RectTransform>();
         Options = transform.Find("Options");
         prefab_OptionItem = Resources.Load<GameObject>("Options_Item");
-        TestDialog();
+         TestDialog();
     }
 
    
@@ -45,7 +45,6 @@ public class UI_Dialog : MonoBehaviour
     }
     private void TestDialog()
     {
-        // StartCoroutine(DoMainTextEF("这是一个测试文字~~~~~~~~~~~~~~~~"));
         currconf = GameManager.Instance.GetDialogConf(0);
 
         currindex = 0;
@@ -139,7 +138,6 @@ public class UI_Dialog : MonoBehaviour
     }
     IEnumerator DoMainTextEF(string txt)
     {
-
         // 字符数量决定了 conteng的高 每23个字符增加25的高
         float addHeight = txt.Length / 23 + 1;
         content.sizeDelta = new Vector2(content.sizeDelta.x, addHeight*25);
