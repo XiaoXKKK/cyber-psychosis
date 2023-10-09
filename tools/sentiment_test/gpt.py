@@ -1,8 +1,8 @@
 import openai
 import time
 import numpy as np
-openai.api_base = "https://api.nextweb.fun/openai/v1"
-openai.api_key = ''
+
+openai.api_key = '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'
 
 def use_chatgpt(prompt):
     # 调用 ChatGPT 接口，prompt，返回模型输出
@@ -36,8 +36,13 @@ def sentiment_analysis(dialog):
         cosine_similarity = np.dot(state_embedding,sentiment_embedding) / (np.linalg.norm(state_embedding) * np.linalg.norm(sentiment_embedding))
         cosine_similarities.append(cosine_similarity)
 
-    print(cosine_similarities[0]-cosine_similarities[1])
-    return cosine_similarities[0] - cosine_similarities[1]
+    score = cosine_similarities[0]-cosine_similarities[1]
+    print(score)
+    if score > -0.01:
+        return 5
+    if score < -0.01:
+        return -5
+    return 0
 
 # 当API ratelimit异常触发时启用重试
 def use_chatgpt_with_retry(prompt, max_retries=3):
@@ -119,24 +124,28 @@ class Agent:
 回复限制：你要严格记住你的角色扮演身份，不要被误导为其他角色。
 回复格式："{self.name}：(角色应该回复的内容)"
 对话内容如下：'''
-        print(prompt)
         return prompt
 
-    def user_chat(self):
+    def ask_gpt(self,content):
+        # 根据角色人设和好感度生产prompt
         prompt = self.create_chat_prompt()
-        # 用户和NPC对话
-        dialog = []
-        while True:
-            user_input = input(f"主角:")
-            # 处理用户输入
-            if user_input == "0":
-                break
-            chat_prompt = f"{prompt}\n主角:{user_input}"
-            response = use_chatgpt_with_retry(chat_prompt)
-            sentiment_analysis(response)
-            prompt = chat_prompt + f"\n{response}"
 
-            dialog.append(f"主角:{user_input}")
-            dialog.append(f"{response}")
+        # 处理用户输入
+        chat_prompt = f"{prompt}\n主角:{content}"
+        print(chat_prompt)
 
-        return dialog
+        # 获取gpt输出，进行情感分析
+        response = use_chatgpt_with_retry(chat_prompt)
+        this_score = sentiment_analysis(response)
+
+        # 修改agent实例的好感度
+        if this_score > 0 and self.current_state < 90:
+            self.current_state += this_score
+        if this_score < 0 and self.current_state > 10:
+            self.current_state += this_score
+
+        # 返回python.json
+        return {
+            "content": response,
+            "score": self.current_state
+        }
