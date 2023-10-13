@@ -43,18 +43,38 @@ public class UI_AIDialog : MonoBehaviour
         StartSubProcess();
     }
 
+    [Serializable]
+    public class PythonJsonData
+    {
+        public string content;
+        public int score;
+    }
+
+    [Serializable]
+    public class UnityJsonData
+    {
+        public string content;
+        public string name;
+    }
+    public void Send()
+    {
+        UnityEngine.Debug.Log(input.text);
+        UnityJsonData jsonData = new()
+        {
+            content = input.text,
+            name = "Elelyn"
+        };
+        byte[] message = Encoding.UTF8.GetBytes(JsonUtility.ToJson(jsonData));
+        udpClient.Send(message, message.Length, remoteEP);
+    }
+
     void ReceiveUDPMessage(string receiveData)
     {
         //接下来就看自己如何解析了
         UnityEngine.Debug.Log(receiveData);
-        UI_Dialog.Instance.SaySth(receiveData);
+        PythonJsonData data = JsonUtility.FromJson<PythonJsonData>(receiveData);
+        UI_Dialog.Instance.SaySth(data.content);
     }
-
-    void Update()
-    {
-
-    }
-
 
     private void StartSubProcess()
     {
@@ -77,7 +97,7 @@ public class UI_AIDialog : MonoBehaviour
         // 输入参数是上一步的command字符串
         startInfo.Arguments = command;
         // 因为嵌入Unity中后台使用，所以设置不显示窗口
-        startInfo.CreateNoWindow = true;
+        startInfo.CreateNoWindow = false;
         // 这里需要设定为false（使用CreateProcess创建进程）
         startInfo.UseShellExecute = false;
 
@@ -87,13 +107,6 @@ public class UI_AIDialog : MonoBehaviour
 
         //启动脚本Process，并且激活逐行读取输出与报错
         process.Start();
-    }
-
-    public void Send()
-    {
-        UnityEngine.Debug.Log(input.text);
-        byte[] message = Encoding.UTF8.GetBytes(input.text);
-        udpClient.Send(message, message.Length, remoteEP);
     }
 
     void Kill_All_Python_Process()

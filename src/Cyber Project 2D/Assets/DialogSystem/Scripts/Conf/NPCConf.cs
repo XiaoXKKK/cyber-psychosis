@@ -10,4 +10,5 @@ public class NPCConf : ScriptableObject
     public Sprite Head;
     [VerticalGroup("NPC/NPCField"), LabelText("Ãû³Æ")]
     public string Name;
+    public int score;
 }
