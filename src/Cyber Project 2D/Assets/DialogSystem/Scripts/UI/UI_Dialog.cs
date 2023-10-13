@@ -18,6 +18,10 @@ public class UI_Dialog : MonoBehaviour
 
     private DialogConf currconf;
     private int currindex;
+    public string currnpc;
+
+    private Dictionary<string, int> scores;
+    private NPCConf[] npcs;
 
     private UI_Click ui_Click;
     private void Awake()
@@ -26,6 +30,7 @@ public class UI_Dialog : MonoBehaviour
     }
     private void Start()
     {
+        InitNpc();
         head = transform.Find("Main/Head").GetComponent<Image>();
         nameText = transform.Find("Main/Name").GetComponent<Text>();
         ui_Click = transform.Find("Main/Scroll View").GetComponent<UI_Click>();
@@ -35,10 +40,18 @@ public class UI_Dialog : MonoBehaviour
         content = transform.Find("Main/Scroll View/Viewport/Content").GetComponent<RectTransform>();
         Options = transform.Find("Options");
         prefab_OptionItem = Resources.Load<GameObject>("Options_Item");
-         TestDialog();
+        TestDialog();
     }
 
-   
+    private void InitNpc()
+    {
+        scores = new Dictionary<string, int>();
+        npcs = Resources.LoadAll<NPCConf>("Npc");
+        foreach (var npc in npcs)
+        {
+            scores.Add(npc.Name, npc.score);
+        }
+    }
     public void SaySth(string txt)
     {
         StartCoroutine(DoMainTextEF(txt));
@@ -59,6 +72,7 @@ public class UI_Dialog : MonoBehaviour
         // 修改图像和名字
         head.sprite = model.NPCConf.Head;
         nameText.text = model.NPCConf.Name;
+        currnpc = nameText.text;
         // 说话
         StartCoroutine(DoMainTextEF(model.NPCContent));
 
@@ -109,12 +123,21 @@ public class UI_Dialog : MonoBehaviour
             case DialogEventEnum.AIDialog:
                 AIDialogEvent();
                 break;
+            case DialogEventEnum.UpdateScore:
+                UpdateScore(int.Parse(args));
+                break;
             case DialogEventEnum.ScreenEF:
                 GameManager.Instance.ScreenEF(float.Parse(args));
                 break;
         }
     }
 
+
+    public void UpdateScore(int num)
+    {
+        Debug.Log(nameText.text + num.ToString());
+        scores[nameText.text] += num;
+    }
     private void AIDialogEvent()
     {
         input.SetActive(true);

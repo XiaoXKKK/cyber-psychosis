@@ -10,5 +10,6 @@ public class NPCConf : ScriptableObject
     public Sprite Head;
     [VerticalGroup("NPC/NPCField"), LabelText("名称")]
     public string Name;
+    [VerticalGroup("NPC/NPCField"), LabelText("好感度")]
     public int score;
 }

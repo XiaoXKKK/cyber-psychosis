@@ -32,4 +32,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
             # 根据json_data["npc"]找到对应的agent
             answer = Evelyn_Agent.ask_gpt(json_data["content"])
             s.sendto(json.dumps(answer, ensure_ascii=False).encode(), (HOST, 5768))
-            # save_to_json(Evelyn_Agent.to_json(),"Evelyn.json")
+            save_to_json(Evelyn_Agent.to_json(),"Evelyn.json")

@@ -38,6 +38,8 @@ public enum DialogEventEnum
     JumpDialog,
     [LabelText("AI对话")]
     AIDialog,
+    [LabelText("更新好感度")]
+    UpdateScore,
     [LabelText("屏幕效果")]
     ScreenEF
 }

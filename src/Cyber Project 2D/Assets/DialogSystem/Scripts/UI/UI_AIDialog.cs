@@ -62,7 +62,7 @@ public class UI_AIDialog : MonoBehaviour
         UnityJsonData jsonData = new()
         {
             content = input.text,
-            name = "Elelyn"
+            name = UI_Dialog.Instance.currnpc
         };
         byte[] message = Encoding.UTF8.GetBytes(JsonUtility.ToJson(jsonData));
         udpClient.Send(message, message.Length, remoteEP);
@@ -74,6 +74,7 @@ public class UI_AIDialog : MonoBehaviour
         UnityEngine.Debug.Log(receiveData);
         PythonJsonData data = JsonUtility.FromJson<PythonJsonData>(receiveData);
         UI_Dialog.Instance.SaySth(data.content);
+        UI_Dialog.Instance.UpdateScore(data.score);
     }
 
     private void StartSubProcess()
@@ -97,7 +98,7 @@ public class UI_AIDialog : MonoBehaviour
         // 输入参数是上一步的command字符串
         startInfo.Arguments = command;
         // 因为嵌入Unity中后台使用，所以设置不显示窗口
-        startInfo.CreateNoWindow = false;
+        startInfo.CreateNoWindow = true;
         // 这里需要设定为false（使用CreateProcess创建进程）
         startInfo.UseShellExecute = false;
 

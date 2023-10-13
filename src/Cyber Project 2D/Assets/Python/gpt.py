@@ -139,6 +139,7 @@ class Agent:
         response = use_chatgpt_with_retry(chat_prompt)
         this_score = sentiment_analysis(response)
 
+        old_score = self.current_state
         # 修改agent实例的好感度
         if this_score > 0 and self.current_state < 90:
             self.current_state += this_score
@@ -148,5 +149,5 @@ class Agent:
         # 返回python.json
         return {
             "content": response,
-            "score": self.current_state
+            "score": self.current_state - old_score
         }

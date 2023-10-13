@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23e077aa5a58ffa4aae3aacb85ea8469, type: 3}
-  m_Name: "\u827E\u8389"
+  m_Name: "\u4E3B\u89D2"
   m_EditorClassIdentifier: 
-  Head: {fileID: 0}
-  Name: 
+  Head: {fileID: 21300000, guid: c6efc451675253f41b44c9aff31f4c46, type: 3}
+  Name: "\u4E3B\u89D2"
+  score: 0
