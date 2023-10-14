@@ -1,0 +1,15 @@
+{
+    "name": "名字",
+    "seed_memory": "背景",
+    "language_style": [
+        "字符串的列表",
+        "语气风格",
+        "由好感度控制"
+    ],
+    "current_state":0,
+    "prefix_list": [
+        "字符串的列表",
+        "prompt模板",
+        "由好感度控制"
+    ]
+}
