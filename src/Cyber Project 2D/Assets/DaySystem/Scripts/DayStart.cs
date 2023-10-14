@@ -17,14 +17,12 @@ public class DayStart : MonoBehaviour
         DaySystemManager.Instance.Fade();
         DaySystemManager.Instance.DelayPartUI("一天的开始");
         hasIn = true;
-        Debug.Log("1");
     }
 
     public void StartDayStart_Out()
     {
         dayStart_Out.Play();
         hasOut = true;
-        Debug.Log("2");
     }
 
     public static void ResetStates()
