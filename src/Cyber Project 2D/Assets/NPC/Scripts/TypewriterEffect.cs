@@ -41,6 +41,7 @@ public class TypewriterEffect : MonoBehaviour
         isActive = true;
         words = myText.text;
         myText.text = "";//获取Text的文本信息，保存到words中，然后动态更新文本显示内容，实现打字机的效果
+        currentPos = 0;
     }
     /// <summary>
     /// 执行打字任务
