@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using MoreMountains.CorgiEngine;
 
 
 public class UI_Dialog : MonoBehaviour
@@ -20,16 +21,13 @@ public class UI_Dialog : MonoBehaviour
     private int currindex;
     public string currnpc;
 
-    private Dictionary<string, int> scores;
+    public Dictionary<string, int> scores;
     private NPCConf[] npcs;
 
     private UI_Click ui_Click;
     private void Awake()
     {
         Instance = this;
-    }
-    private void Start()
-    {
         InitNpc();
         head = transform.Find("Main/Head").GetComponent<Image>();
         nameText = transform.Find("Main/Name").GetComponent<Text>();
@@ -40,7 +38,6 @@ public class UI_Dialog : MonoBehaviour
         content = transform.Find("Main/Scroll View/Viewport/Content").GetComponent<RectTransform>();
         Options = transform.Find("Options");
         prefab_OptionItem = Resources.Load<GameObject>("Options_Item");
-        TestDialog();
     }
 
     private void InitNpc()
@@ -58,7 +55,15 @@ public class UI_Dialog : MonoBehaviour
     }
     private void TestDialog()
     {
-        currconf = GameManager.Instance.GetDialogConf(0);
+        currconf = DialogueManager.Instance.GetDialogConf(0);
+
+        currindex = 0;
+
+        StartDialog(currconf, currindex);
+    }
+    public void InitDialog(DialogConf conf)
+    {
+        currconf = conf;
 
         currindex = 0;
 
@@ -127,7 +132,7 @@ public class UI_Dialog : MonoBehaviour
                 UpdateScore(int.Parse(args));
                 break;
             case DialogEventEnum.ScreenEF:
-                GameManager.Instance.ScreenEF(float.Parse(args));
+                DialogueManager.Instance.ScreenEF(float.Parse(args));
                 break;
         }
     }
@@ -141,6 +146,7 @@ public class UI_Dialog : MonoBehaviour
     private void AIDialogEvent()
     {
         input.SetActive(true);
+        ui_Click.enabled = false;
     }
     private void NextDialogEvent()
     {
@@ -151,7 +157,9 @@ public class UI_Dialog : MonoBehaviour
     private void ExitDialogEvent()
     {
         ui_Click.enabled = false;
-        Debug.Log("对话结束");
+        gameObject.SetActive(false);
+        DialogueManager.Instance.ChangeInput(true);
+        NarratorSystem.Instance.ShowInfo(3);
     }
 
     private void JumpDialogEvent(int index)

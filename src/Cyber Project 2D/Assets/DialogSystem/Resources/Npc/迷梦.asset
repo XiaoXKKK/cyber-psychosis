@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Head: {fileID: 21300000, guid: 1f30d9341b0159345a926864e04da634, type: 3}
   Name: "\u8FF7\u68A6"
-  score: 0
+  score: 30

@@ -7,6 +7,8 @@ public class NPC_Aelia : MonoBehaviour
 {
     public int favorability = 50;
     public bool isGoodCondition = false;
+    public DialogConf conf0;
+    public DialogConf confai;
     public void IncreaseFavorability()//每次对话都会增加20好感度，被使用镇静剂时会增加30好感度
     {
         
@@ -33,8 +35,18 @@ public class NPC_Aelia : MonoBehaviour
         }
         else if (favorability < 0)
             favorability = 0;
-        NarratorSystem.Instance.ShowInfo(3);
     }
+
+    public void StartDialog()
+    {
+        if (favorability < 50)
+        {
+            DialogueManager.Instance.StartDialog(conf0);
+        }
+        else
+            DialogueManager.Instance.StartDialog(confai);
+    }
+
     public void Buff(string itemName)
     {
         if (itemName == "Cola")

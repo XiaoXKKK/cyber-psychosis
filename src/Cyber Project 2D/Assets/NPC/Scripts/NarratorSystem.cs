@@ -152,6 +152,7 @@ public class NarratorSystem : MonoBehaviour
     {
         for(int i = currentDialogueNum; i < dialogue.Count; i++)
         {
+            NarratorUI.DOFade(1,0.2f);
             NarratorText.text = dialogue[i];
             typewriterEffect.ReStartEffect();
             timer = typewriterEffect.words.Length * typewriterEffect.charsPerSecond + 5;
