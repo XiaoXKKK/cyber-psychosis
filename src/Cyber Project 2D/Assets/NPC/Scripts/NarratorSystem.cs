@@ -84,6 +84,7 @@ public class NarratorSystem : MonoBehaviour
     #endregion
     public void ShowInfo(String info)//无关ID，直接显示info
     {
+        StopAllCoroutines();
         NarratorUI.DOFade(1, 0.2f);
         NarratorText.text = info;
         typewriterEffect.ReStartEffect();
@@ -131,11 +132,12 @@ public class NarratorSystem : MonoBehaviour
         for(int i = currentItemNum; i < items.Count; i++)
         {
             NarratorText.text = items[i];
-            typewriterEffect.ReStartEffect();
+            typewriterEffect.ReStartEffect();       
             timer = typewriterEffect.words.Length * typewriterEffect.charsPerSecond + 5;
+            currentItemNum = items.Count;
             yield return new WaitForSeconds(typewriterEffect.words.Length * typewriterEffect.charsPerSecond + 1);
         }
-        currentItemNum = items.Count;
+
     }
     IEnumerator ShowActionsList()
     {
@@ -144,9 +146,10 @@ public class NarratorSystem : MonoBehaviour
             NarratorText.text = actions[i];
             typewriterEffect.ReStartEffect();
             timer = typewriterEffect.words.Length * typewriterEffect.charsPerSecond + 5;
+            currentActionNum = actions.Count;
             yield return new WaitForSeconds(typewriterEffect.words.Length * typewriterEffect.charsPerSecond + 1);
         }
-        currentActionNum = actions.Count;
+       
     }
     IEnumerator ShowDialogueList()
     {
@@ -156,9 +159,10 @@ public class NarratorSystem : MonoBehaviour
             NarratorText.text = dialogue[i];
             typewriterEffect.ReStartEffect();
             timer = typewriterEffect.words.Length * typewriterEffect.charsPerSecond + 5;
+            currentDialogueNum = dialogue.Count;
             yield return new WaitForSeconds(typewriterEffect.words.Length * typewriterEffect.charsPerSecond + 1);
         }
-        currentDialogueNum = dialogue.Count;
+        
     }
     IEnumerator ShowInteractionsList()
     {
@@ -167,8 +171,9 @@ public class NarratorSystem : MonoBehaviour
             NarratorText.text = interactions[i];
             typewriterEffect.ReStartEffect();
             timer = typewriterEffect.words.Length * typewriterEffect.charsPerSecond + 5;
+            currentInteractionNum = interactions.Count;
             yield return new WaitForSeconds(typewriterEffect.words.Length * typewriterEffect.charsPerSecond + 1);
         }
-        currentInteractionNum = interactions.Count;
+        
     }
 }
