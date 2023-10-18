@@ -110,7 +110,6 @@ public class UI_Dialog : MonoBehaviour
             ParseDialogEvent(model.events[i].DialogEvent, model.events[i].Args);
         }
     }
-
     public void ParseDialogEvent(DialogEventEnum dialogEvent, string args)
     {
         input.SetActive(false);
@@ -154,7 +153,7 @@ public class UI_Dialog : MonoBehaviour
         StartDialog(currconf, currindex);
     }
 
-    private void ExitDialogEvent()
+    public void ExitDialogEvent()
     {
         ui_Click.enabled = false;
         gameObject.SetActive(false);
