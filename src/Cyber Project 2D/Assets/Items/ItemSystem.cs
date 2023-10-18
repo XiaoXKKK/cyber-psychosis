@@ -1,12 +1,45 @@
 using MoreMountains.CorgiEngine;
+using MoreMountains.InventoryEngine;
+using MoreMountains.Tools;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemSystem : MonoBehaviour
+public class ItemSystem : MonoBehaviour, MMEventListener<MMInventoryEvent>
 {
     public bool AeliaOpenInventory = false;
+    public bool EvelynOpenInventory = false;
+    public bool SherylinaOpenInventory = false;
+    public bool MystiqueOpenInventory = false;
+    public bool VidoraOpenInventory = false;
+    public bool SephiraOpenInventory = false;
+    public bool PlayerOpenInventory = false;
+    public bool DestroyedRobotOpenInventory = false;
     public List<GameObject> uniqueItems = new List<GameObject>();
+    void OnEnable()
+    {
+        this.MMEventStartListening<MMInventoryEvent>();
+    }
+
+    void OnDisable()
+    {
+        this.MMEventStopListening<MMInventoryEvent>();
+    }
+    public void OnMMEvent(MMInventoryEvent inventoryEvent)
+    {
+        switch (inventoryEvent.InventoryEventType)
+        {
+            case MMInventoryEventType.InventoryCloses:
+                AeliaOpenInventory = false;
+                EvelynOpenInventory = false;
+                SherylinaOpenInventory = false;
+                MystiqueOpenInventory = false;
+                VidoraOpenInventory = false;
+                PlayerOpenInventory = true;
+                SephiraOpenInventory = false;
+                break;
+        }
+    }
     public void RespawnAllUniqueItems()
     {
         foreach (GameObject item in uniqueItems)
@@ -34,7 +67,105 @@ public class ItemSystem : MonoBehaviour
             AeliaOpenInventory = true;
         }else
         {
+            SephiraOpenInventory = false;
+            EvelynOpenInventory = false; 
+            SherylinaOpenInventory = false;
+            MystiqueOpenInventory = false;
+            VidoraOpenInventory = false;
+            PlayerOpenInventory = false;
+            DestroyedRobotOpenInventory = false;
+        }
+        if (name == "Evelyn")
+        {
+            EvelynOpenInventory = true;
+        }else
+        {
             AeliaOpenInventory = false;
+            SephiraOpenInventory = false;
+            SherylinaOpenInventory = false;
+            MystiqueOpenInventory = false;
+            VidoraOpenInventory = false;
+            PlayerOpenInventory = false;
+            DestroyedRobotOpenInventory = false;
+        }
+        if (name == "Sherylina")
+        {
+            SherylinaOpenInventory = true;
+        }else
+        {
+            AeliaOpenInventory = false;
+            EvelynOpenInventory = false;
+            SephiraOpenInventory = false;
+            MystiqueOpenInventory = false;
+            VidoraOpenInventory = false;
+            PlayerOpenInventory = false;
+            DestroyedRobotOpenInventory = false;
+        }
+        if (name == "Mystique")
+        {
+            MystiqueOpenInventory = true;
+        }else
+        {
+            AeliaOpenInventory = false;
+            EvelynOpenInventory = false;
+            SherylinaOpenInventory = false;
+            SephiraOpenInventory = false;
+            VidoraOpenInventory = false;
+            PlayerOpenInventory = false;
+            DestroyedRobotOpenInventory = false;
+        }
+        if (name == "Vidora")
+        {
+            VidoraOpenInventory = true;
+        }else
+        {
+            AeliaOpenInventory = false;
+            EvelynOpenInventory = false;
+            SherylinaOpenInventory = false;
+            MystiqueOpenInventory = false;
+            SephiraOpenInventory = false;
+            PlayerOpenInventory = false;
+            DestroyedRobotOpenInventory = false;
+        }
+        if (name == "Sephira")
+        {
+            SephiraOpenInventory = true;
+        }else
+        {
+            AeliaOpenInventory = false;
+            EvelynOpenInventory = false;
+            SherylinaOpenInventory = false;
+            MystiqueOpenInventory = false;
+            VidoraOpenInventory = false;
+            PlayerOpenInventory = false;
+            DestroyedRobotOpenInventory = false;
+        }
+        if (name == "Player")
+        {
+            PlayerOpenInventory = true;
+        }else
+        {
+            AeliaOpenInventory = false;
+            EvelynOpenInventory = false;
+            SherylinaOpenInventory = false;
+            MystiqueOpenInventory = false;
+            VidoraOpenInventory = false;
+            SephiraOpenInventory = false;
+            DestroyedRobotOpenInventory = false;
+        }
+        if (name == "DestroyedRobot")
+        {
+            DestroyedRobotOpenInventory = true;
+        }
+        else
+        {
+            AeliaOpenInventory = false;
+            EvelynOpenInventory = false;
+            SherylinaOpenInventory = false;
+            MystiqueOpenInventory = false;
+            VidoraOpenInventory = false;
+            SephiraOpenInventory = false;
+            PlayerOpenInventory = false;
         }
 
         //其他NPC打开背包的情况
@@ -44,6 +175,34 @@ public class ItemSystem : MonoBehaviour
         if (AeliaOpenInventory)
         {
             return "Aelia";
+        }
+        else if (EvelynOpenInventory)
+        {
+            return "Evelyn";
+        }
+        else if (SherylinaOpenInventory)
+        {
+            return "Sherylina";
+        }
+        else if (MystiqueOpenInventory)
+        {
+            return "Mystique";
+        }
+        else if (VidoraOpenInventory)
+        {
+            return "Vidora";
+        }
+        else if (SephiraOpenInventory)
+        {
+            return "Sephira";
+        }
+        else if (PlayerOpenInventory)
+        {
+            return "Player";
+        }
+        else if (DestroyedRobotOpenInventory)
+        {
+            return"DestroyedRobot";
         }
         return "Nobody";
     }

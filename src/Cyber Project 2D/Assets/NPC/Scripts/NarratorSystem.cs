@@ -131,6 +131,7 @@ public class NarratorSystem : MonoBehaviour
     {
         for(int i = currentItemNum; i < items.Count; i++)
         {
+            NarratorUI.DOFade(1, 0.2f);
             NarratorText.text = items[i];
             typewriterEffect.ReStartEffect();       
             timer = typewriterEffect.words.Length * typewriterEffect.charsPerSecond + 5;
@@ -143,6 +144,7 @@ public class NarratorSystem : MonoBehaviour
     {
         for(int i = currentActionNum; i < actions.Count; i++)
         {
+            NarratorUI.DOFade(1, 0.2f);
             NarratorText.text = actions[i];
             typewriterEffect.ReStartEffect();
             timer = typewriterEffect.words.Length * typewriterEffect.charsPerSecond + 5;
@@ -159,7 +161,7 @@ public class NarratorSystem : MonoBehaviour
             NarratorText.text = dialogue[i];
             typewriterEffect.ReStartEffect();
             timer = typewriterEffect.words.Length * typewriterEffect.charsPerSecond + 5;
-            currentDialogueNum = dialogue.Count;
+            currentDialogueNum = dialogue.Count;//这样写的好处是，只要触发一次旁白，就会无视之前的旁白，直接显示最新的旁白
             yield return new WaitForSeconds(typewriterEffect.words.Length * typewriterEffect.charsPerSecond + 1);
         }
         
@@ -168,6 +170,7 @@ public class NarratorSystem : MonoBehaviour
     {
         for(int i = currentInteractionNum; i < interactions.Count; i++)
         {
+            NarratorUI.DOFade(1, 0.2f);
             NarratorText.text = interactions[i];
             typewriterEffect.ReStartEffect();
             timer = typewriterEffect.words.Length * typewriterEffect.charsPerSecond + 5;

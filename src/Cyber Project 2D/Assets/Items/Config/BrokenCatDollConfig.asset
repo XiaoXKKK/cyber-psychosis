@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 334c16add61bb074fb569de3fca7b586, type: 3}
-  m_Name: EmptyCupConfig
+  m_Script: {fileID: 11500000, guid: d6c94734320d9ba42a278f515b147cad, type: 3}
+  m_Name: BrokenCatDollConfig
   m_EditorClassIdentifier: 
-  ItemID: EmptyCup
+  ItemID: BrokenCatDoll
   TargetInventoryName: MainInventory
   ForceSlotIndex: 0
   TargetIndex: 0
   Usable: 1
-  Consumable: 0
+  Consumable: 1
   ConsumeQuantity: 1
   Equippable: 0
   EquippableIfInventoryIsFull: 1
@@ -33,10 +33,10 @@ MonoBehaviour:
     DisplayUseButton: 1
     DisplayUnequipButton: 1
   Quantity: 1
-  ItemName: "\u7A7A\u676F\u5B50"
-  ShortDescription: "\u53EF\u4EE5\u7528\u6765\u88C5\u70B9\u4EC0\u4E48\u3002"
-  Description: "\u4F60\u518D\u600E\u4E48\u770B\uFF0C\u5B83\u91CC\u9762\u8FD8\u662F\u4EC0\u4E48\u4E5F\u6CA1\u6709\u3002"
-  Icon: {fileID: 21300000, guid: 2ae0b8b4cfa7ed14db85b9f39257593f, type: 3}
+  ItemName: "\u7834\u635F\u7684\u73A9\u5177\u732B"
+  ShortDescription: "\u4E00\u4E2A\u88AB\u7834\u4E86\u51E0\u4E2A\u5C0F\u6D1E\u7684\u732B\u5F62\u73A9\u5076\u3002"
+  Description: "\u662F\u8C01\u4E0D\u5C0F\u5FC3\u9057\u5931\u7684\u5427\u3002"
+  Icon: {fileID: 21300000, guid: 5b86ce8095b5e5e4d8847852860e87d5, type: 3}
   Prefab: {fileID: 0}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1

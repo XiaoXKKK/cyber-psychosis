@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 334c16add61bb074fb569de3fca7b586, type: 3}
-  m_Name: EmptyCupConfig
+  m_Script: {fileID: 11500000, guid: 6f11e4f1559e4114bbd26492b1465169, type: 3}
+  m_Name: MoneyConfig
   m_EditorClassIdentifier: 
-  ItemID: EmptyCup
+  ItemID: Money
   TargetInventoryName: MainInventory
   ForceSlotIndex: 0
   TargetIndex: 0
@@ -33,10 +33,10 @@ MonoBehaviour:
     DisplayUseButton: 1
     DisplayUnequipButton: 1
   Quantity: 1
-  ItemName: "\u7A7A\u676F\u5B50"
-  ShortDescription: "\u53EF\u4EE5\u7528\u6765\u88C5\u70B9\u4EC0\u4E48\u3002"
-  Description: "\u4F60\u518D\u600E\u4E48\u770B\uFF0C\u5B83\u91CC\u9762\u8FD8\u662F\u4EC0\u4E48\u4E5F\u6CA1\u6709\u3002"
-  Icon: {fileID: 21300000, guid: 2ae0b8b4cfa7ed14db85b9f39257593f, type: 3}
+  ItemName: "\u4E00\u5927\u7B14\u94B1"
+  ShortDescription: "\u67D0\u4E2A\u4EBA\u85CF\u7684\u94B1"
+  Description: "\u4E5F\u8BB8\u53EF\u4EE5\u7528\u6765\u8D3F\u8D42\u67D0\u4EBA\u3002"
+  Icon: {fileID: 21300000, guid: f57dc46be5bc46d47834eb03948ec83e, type: 3}
   Prefab: {fileID: 0}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1
