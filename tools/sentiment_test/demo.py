@@ -1,5 +1,7 @@
 from gpt import Agent
 import json
+# 暂时禁用语音
+# import speech
 
 def save_to_json(data, filename):
     with open(filename, 'w',encoding="utf-8") as json_file:
@@ -7,25 +9,69 @@ def save_to_json(data, filename):
 
 if __name__ == '__main__':
     # 加载垂直组需要的角色数据
-    # 注：本来从设计模式上讲用一个文件存角色数据就好了，但是策划案要求了对话中体现好感度改变，因此也得在这边同步好感度
     with open("Evelyn.json", "r", encoding="utf-8") as json_file:
         loaded_data = json.load(json_file)
 
     # dialog用于存储本次的用户输入和gpt输出，便于加入到下次对话
-    dialog = []
     new_agent = Agent.from_json(loaded_data)
+    dialog = []
 
     # content实际应该从unity.json中解析到，因为gpt这边是接受content并且只返回本次输出，所以可以在unity侧把上轮的对话加到下一轮的content当中
-    # 可先测通单次对话
     content = input("主角：")
 
     # answer是unity组应该接收到的python.json格式，ask_gpt是单次对话实现
     answer = new_agent.ask_gpt(content)
     print(answer)
+
+    # 可以暂时禁用，因为azure的服务要给钱
+    # speech.text_to_speech(answer["content"])
+
+    # 演示pyhton格式
     save_to_json(answer, "python.json")
 
+    # 汇总对话
     dialog.append(f"主角：{content}")
     dialog.append(answer["content"])
+    print(dialog)
 
-    # 更新python这边的好感度，用于在对话中透露信息
+    # 更新python这边的好感度，用于在对话中控制信息
     save_to_json(new_agent.to_json(),"Evelyn.json")
+
+# 多轮对话:还需要略微改改ask_gpt和change_agent_state的逻辑
+# if __name__ == '__main__':
+#     # 加载垂直组需要的角色数据
+#     with open("Evelyn.json", "r", encoding="utf-8") as json_file:
+#         loaded_data = json.load(json_file)
+#
+#         # dialog用于存储本次的用户输入和gpt输出，便于加入到下次对话
+#     new_agent = Agent.from_json(loaded_data)
+#     dialog = []
+#     next_content = ""
+#
+#     while True:
+#         # content实际应该从unity.json中解析到，因为gpt这边是接受content并且只返回本次输出，所以可以在unity侧把上轮的对话加到下一轮的content当中
+#         content = input("主角：")
+#         if content == "0":
+#             break
+#
+#         next_content += f"主角：{content}"
+#         next_content += "\n"
+#
+#         # answer是unity组应该接收到的python.json格式，ask_gpt是单次对话实现
+#         answer = new_agent.ask_gpt(next_content)
+#         print(answer)
+#
+#         # 可以暂时禁用，因为azure的服务要给钱
+#         speech.text_to_speech(answer["content"])
+#
+#         save_to_json(answer, "python.json")
+#
+#         dialog.append(f"主角：{content}")
+#         dialog.append(answer["content"])
+#
+#         next_content += answer['content']
+#         next_content += "\n"
+#
+#     print(dialog)
+#     # 更新python这边的好感度，用于在对话中控制信息
+#     save_to_json(new_agent.to_json(),"Evelyn.json")
