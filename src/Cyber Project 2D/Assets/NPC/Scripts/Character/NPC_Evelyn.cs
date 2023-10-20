@@ -4,12 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC_Evelyn : MonoBehaviour
+public class NPC_Evelyn : NPC_Base
 {
-    public int favorability = 50;
-    public bool isGoodCondition = false;
     public DialogConf conf0;
     public DialogConf confai;
+
+    public NPC_Evelyn() : base()
+    {
+        npcname = "Evelyn";
+    }
 
     public void StartDialog()
     {

@@ -19,16 +19,14 @@ public class UI_Dialog : MonoBehaviour
 
     private DialogConf currconf;
     private int currindex;
-    public string currnpc;
 
     public Dictionary<string, int> scores;
-    private NPCConf[] npcs;
+    public NPC_Base Currnpc { set; get; }
 
     private UI_Click ui_Click;
     private void Awake()
     {
         Instance = this;
-        InitNpc();
         head = transform.Find("Main/Head").GetComponent<Image>();
         nameText = transform.Find("Main/Name").GetComponent<Text>();
         ui_Click = transform.Find("Main/Scroll View").GetComponent<UI_Click>();
@@ -39,27 +37,10 @@ public class UI_Dialog : MonoBehaviour
         Options = transform.Find("Options");
         prefab_OptionItem = Resources.Load<GameObject>("Options_Item");
     }
-
-    private void InitNpc()
-    {
-        scores = new Dictionary<string, int>();
-        npcs = Resources.LoadAll<NPCConf>("Npc");
-        foreach (var npc in npcs)
-        {
-            scores.Add(npc.Name, npc.score);
-        }
-    }
+    
     public void SaySth(string txt)
     {
         StartCoroutine(DoMainTextEF(txt));
-    }
-    private void TestDialog()
-    {
-        currconf = DialogueManager.Instance.GetDialogConf(0);
-
-        currindex = 0;
-
-        StartDialog(currconf, currindex);
     }
     public void InitDialog(DialogConf conf)
     {
@@ -77,7 +58,6 @@ public class UI_Dialog : MonoBehaviour
         // 修改图像和名字
         head.sprite = model.NPCConf.Head;
         nameText.text = model.NPCConf.Name;
-        currnpc = nameText.text;
         // 说话
         StartCoroutine(DoMainTextEF(model.NPCContent));
 
@@ -140,7 +120,7 @@ public class UI_Dialog : MonoBehaviour
     public void UpdateScore(int num)
     {
         Debug.Log(nameText.text + num.ToString());
-        scores[nameText.text] += num;
+        Currnpc.favorability += num;
     }
     private void AIDialogEvent()
     {

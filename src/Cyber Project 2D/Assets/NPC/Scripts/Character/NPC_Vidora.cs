@@ -4,13 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC_Vidora : MonoBehaviour
+public class NPC_Vidora : NPC_Base
 {
-    public int favorability = 50;
-    public bool isGoodCondition = false;
     public DialogConf conf0;
     public DialogConf confai;
 
+    public NPC_Vidora() : base()
+    {
+        npcname = "Vidora";
+    }
     public void StartDialog()
     {
         if (favorability < 50)

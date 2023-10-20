@@ -12,6 +12,8 @@ using UnityEngine.UI;
 
 public class UI_AIDialog : MonoBehaviour
 {
+    public GameObject npcController;
+
     private ProcessStartInfo startInfo;
     private Process process;
 
@@ -55,14 +57,17 @@ public class UI_AIDialog : MonoBehaviour
     {
         public string content;
         public string name;
+        public int now_state;
     }
     public void Send()
     {
         UnityEngine.Debug.Log(input.text);
+        NPC_Base curr = UI_Dialog.Instance.Currnpc;
         UnityJsonData jsonData = new()
         {
             content = input.text,
-            name = UI_Dialog.Instance.currnpc
+            name = curr.npcname,
+            now_state = curr.favorability
         };
         byte[] message = Encoding.UTF8.GetBytes(JsonUtility.ToJson(jsonData));
         udpClient.Send(message, message.Length, remoteEP);

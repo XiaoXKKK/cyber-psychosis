@@ -4,13 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC_Sephira : MonoBehaviour
+public class NPC_Sephira : NPC_Base
 {
-    public int favorability = 50;
-    public bool isGoodCondition = false;
     public DialogConf conf0;
     public DialogConf confai;
 
+    public NPC_Sephira() : base()
+    {
+        npcname = "Sephira";
+    }
     public void StartDialog()
     {
         if (favorability < 50)

@@ -1534,6 +1534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a162bd7e098e3cb42b8a6099f561fa72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcController: {fileID: 0}
 --- !u!1 &57450451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,7 +1547,7 @@ GameObject:
   - component: {fileID: 57450453}
   - component: {fileID: 57450455}
   m_Layer: 0
-  m_Name: NPC-Evelyn
+  m_Name: NPC_Evelyn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1632,6 +1633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed16b8b5bc93b1c4e985186c8738b9b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcname: Evelyn
   favorability: 50
   isGoodCondition: 0
   conf0: {fileID: 0}
@@ -4309,8 +4311,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NPC_Aelia, Assembly-CSharp
+      - m_Target: {fileID: 1094428519}
+        m_TargetAssemblyTypeName: UI_Dialog, Assembly-CSharp
+        m_MethodName: set_Currnpc
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1536105016}
+          m_ObjectArgumentAssemblyTypeName: NPC_Base, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1536105016}
+        m_TargetAssemblyTypeName: NPC_Vidora, Assembly-CSharp
         m_MethodName: StartDialog
         m_Mode: 1
         m_Arguments:
@@ -7454,8 +7468,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NPC_Aelia, Assembly-CSharp
+      - m_Target: {fileID: 1094428519}
+        m_TargetAssemblyTypeName: UI_Dialog, Assembly-CSharp
+        m_MethodName: set_Currnpc
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1640204460}
+          m_ObjectArgumentAssemblyTypeName: NPC_Base, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1640204460}
+        m_TargetAssemblyTypeName: NPC_Sephira, Assembly-CSharp
         m_MethodName: StartDialog
         m_Mode: 1
         m_Arguments:
@@ -9551,7 +9577,7 @@ GameObject:
   - component: {fileID: 330214684}
   - component: {fileID: 330214683}
   m_Layer: 0
-  m_Name: NPC-Sherylina
+  m_Name: NPC_Sherylina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9569,6 +9595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7824ef0bd7e333a4d96ed1ed38ea5e1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcname: Sherylina
   favorability: 50
   isGoodCondition: 0
   conf0: {fileID: 0}
@@ -13590,7 +13617,7 @@ GameObject:
   - component: {fileID: 488635780}
   - component: {fileID: 488635782}
   m_Layer: 0
-  m_Name: NPC-Aelia
+  m_Name: NPC_Aelia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13676,6 +13703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7179bbb4e3922784b998e145c6d89aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcname: Aelia
   favorability: 20
   isGoodCondition: 0
   conf0: {fileID: 11400000, guid: c66f35bea58e5d345831babd872e7299, type: 2}
@@ -14241,8 +14269,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NPC_Aelia, Assembly-CSharp
+      - m_Target: {fileID: 1094428519}
+        m_TargetAssemblyTypeName: UI_Dialog, Assembly-CSharp
+        m_MethodName: set_Currnpc
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 330214683}
+          m_ObjectArgumentAssemblyTypeName: NPC_Base, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 330214683}
+        m_TargetAssemblyTypeName: NPC_Sherylina, Assembly-CSharp
         m_MethodName: StartDialog
         m_Mode: 1
         m_Arguments:
@@ -22557,13 +22597,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NPC_Aelia, Assembly-CSharp
+      - m_Target: {fileID: 57450455}
+        m_TargetAssemblyTypeName: NPC_Evelyn, Assembly-CSharp
         m_MethodName: StartDialog
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1094428519}
+        m_TargetAssemblyTypeName: UI_Dialog, Assembly-CSharp
+        m_MethodName: set_Currnpc
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 57450455}
+          m_ObjectArgumentAssemblyTypeName: NPC_Base, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -29061,13 +29113,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 488635782}
-        m_TargetAssemblyTypeName: NPC_Aelia, Assembly-CSharp
-        m_MethodName: IncreaseFavorability
-        m_Mode: 1
+      - m_Target: {fileID: 1094428519}
+        m_TargetAssemblyTypeName: UI_Dialog, Assembly-CSharp
+        m_MethodName: set_Currnpc
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 488635782}
+          m_ObjectArgumentAssemblyTypeName: NPC_Base, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -30726,7 +30778,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69cdd0ffcd5a4e743987966025c42641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currnpc: 
 --- !u!114 &1094428520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31652,8 +31703,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NPC_Aelia, Assembly-CSharp
+      - m_Target: {fileID: 1094428519}
+        m_TargetAssemblyTypeName: UI_Dialog, Assembly-CSharp
+        m_MethodName: set_Currnpc
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1536714783}
+          m_ObjectArgumentAssemblyTypeName: NPC_Base, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1536714783}
+        m_TargetAssemblyTypeName: NPC_Mystique, Assembly-CSharp
         m_MethodName: StartDialog
         m_Mode: 1
         m_Arguments:
@@ -44178,7 +44241,7 @@ GameObject:
   - component: {fileID: 1536105017}
   - component: {fileID: 1536105016}
   m_Layer: 0
-  m_Name: NPC-Vidora
+  m_Name: NPC_Vidora
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44196,6 +44259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22507bddd82f10c4d922f88e9672939b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcname: Vidora
   favorability: 50
   isGoodCondition: 0
   conf0: {fileID: 0}
@@ -44280,7 +44344,7 @@ GameObject:
   - component: {fileID: 1536714784}
   - component: {fileID: 1536714783}
   m_Layer: 0
-  m_Name: NPC-Mystique
+  m_Name: NPC_Mystique
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44298,6 +44362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed87abf387aec347b14d6ecf0333e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcname: Mystique
   favorability: 50
   isGoodCondition: 0
   conf0: {fileID: 0}
@@ -47302,30 +47367,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1640204459}
   - component: {fileID: 1640204458}
-  - component: {fileID: 1640204457}
+  - component: {fileID: 1640204460}
   m_Layer: 0
-  m_Name: NPC-Sephira
+  m_Name: NPC_Sephira
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1640204457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640204456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7824ef0bd7e333a4d96ed1ed38ea5e1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  favorability: 50
-  isGoodCondition: 0
-  conf0: {fileID: 0}
-  confai: {fileID: 11400000, guid: 275b206f91f446741b4caccd997c4cd0, type: 2}
 --- !u!212 &1640204458
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -47394,6 +47443,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1640204460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640204456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85cf52ec537161546859712082f6f74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcname: Sephira
+  favorability: 50
+  isGoodCondition: 0
+  conf0: {fileID: 0}
+  confai: {fileID: 11400000, guid: 275b206f91f446741b4caccd997c4cd0, type: 2}
 --- !u!1 &1640770885
 GameObject:
   m_ObjectHideFlags: 0

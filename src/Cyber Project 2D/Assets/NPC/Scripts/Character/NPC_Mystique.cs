@@ -4,12 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC_Mystique : MonoBehaviour
+public class NPC_Mystique : NPC_Base
 {
-    public int favorability = 50;
-    public bool isGoodCondition = false;
     public DialogConf conf0;
     public DialogConf confai;
+
+    public NPC_Mystique() : base()
+    {
+        npcname = "Mystique";
+    }
 
     public void StartDialog()
     {

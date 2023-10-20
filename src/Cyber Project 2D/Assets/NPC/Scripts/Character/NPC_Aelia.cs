@@ -4,15 +4,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC_Aelia : MonoBehaviour
+public class NPC_Aelia : NPC_Base
 {
-    public int favorability = 50;
-    public bool isGoodCondition = false;
     public DialogConf conf0;
     public DialogConf confai;
+
+    public NPC_Aelia() : base()
+    {
+        npcname = "Aelia";
+    }
+
     //public void IncreaseFavorability()//每次对话都会增加20好感度，被使用镇静剂时会增加30好感度
     //{
-        
+
     //    if (isGoodCondition)
     //    {
     //        favorability += 30;
