@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class NewDaySystem : MonoBehaviour
 {
     public int dayCount = 0;
+    public int AItimes = 3;
     Text dayText;
     public MMF_Player dayUI;
     public CinemachineVirtualCamera virtualCamera;
@@ -62,7 +63,8 @@ public class NewDaySystem : MonoBehaviour
     //------------------------------------------
     public void StartFadeIn()
     {
-        NewDaySystem.Instance.dayCount++;
+        AItimes = 3;
+        dayCount++;
         GameObject.FindWithTag("Player").GetComponent<CharacterHorizontalMovement>().AbilityPermitted = false;
         ToCinema();
     }
