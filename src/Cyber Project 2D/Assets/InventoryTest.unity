@@ -1140,8 +1140,8 @@ Transform:
   - {fileID: 1778685044}
   - {fileID: 1532909404}
   - {fileID: 1753348224}
-  - {fileID: 534911011}
   - {fileID: 869471786}
+  - {fileID: 534911011}
   - {fileID: 213187801}
   m_Father: {fileID: 1274425223}
   m_RootOrder: 0
@@ -2409,7 +2409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ConfineMode: 1
-  m_BoundingVolume: {fileID: 213527047}
+  m_BoundingVolume: {fileID: 96402305}
   m_BoundingShape2D: {fileID: 1741052115}
   m_ConfineScreenEdges: 1
   m_Damping: 0
@@ -3184,6 +3184,7 @@ Transform:
   - {fileID: 1407272857}
   - {fileID: 1552709884}
   - {fileID: 1699564657}
+  - {fileID: 1481713258}
   - {fileID: 118969413}
   - {fileID: 1570329106}
   m_Father: {fileID: 1274425223}
@@ -3681,8 +3682,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 30, y: 17, z: 1}
-  m_Center: {x: 2, y: 0, z: 0}
+  m_Size: {x: 28, y: 29.34747, z: 1}
+  m_Center: {x: 1.9888191, y: 5.3262653, z: 0}
 --- !u!1 &98662696
 GameObject:
   m_ObjectHideFlags: 0
@@ -4217,7 +4218,7 @@ Transform:
   - {fileID: 929712707}
   - {fileID: 153175827}
   m_Father: {fileID: 77063631}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &119216573
 PrefabInstance:
@@ -6181,8 +6182,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 30, y: 17, z: 1}
-  m_Center: {x: 2, y: 0, z: 0}
+  m_Size: {x: 28.034027, y: 29.02613, z: 1}
+  m_Center: {x: 1.9759827, y: 5.4869347, z: 0}
 --- !u!1 &175457057
 GameObject:
   m_ObjectHideFlags: 0
@@ -12678,8 +12679,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 30, y: 17, z: 1}
-  m_Center: {x: 2, y: 0, z: 0}
+  m_Size: {x: 28.047638, y: 29.34747, z: 1}
+  m_Center: {x: 1.9598083, y: 5.3262653, z: 0}
 --- !u!1 &429416077
 GameObject:
   m_ObjectHideFlags: 0
@@ -15838,7 +15839,7 @@ Transform:
   - {fileID: 1045446425}
   - {fileID: 340934762}
   m_Father: {fileID: 38886322}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &537319505
 PrefabInstance:
@@ -18065,7 +18066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ConfineMode: 1
-  m_BoundingVolume: {fileID: 213527047}
+  m_BoundingVolume: {fileID: 927944122}
   m_BoundingShape2D: {fileID: 1864077035}
   m_ConfineScreenEdges: 1
   m_Damping: 0
@@ -20894,7 +20895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ConfineMode: 1
-  m_BoundingVolume: {fileID: 213527047}
+  m_BoundingVolume: {fileID: 428383219}
   m_BoundingShape2D: {fileID: 1947391251}
   m_ConfineScreenEdges: 1
   m_Damping: 0
@@ -25638,6 +25639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 869471786}
+  - component: {fileID: 869471787}
   m_Layer: 2
   m_Name: CamerConfiner
   m_TagString: Untagged
@@ -25658,8 +25660,21 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 38886322}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &869471787
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869471784}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 38.014812, y: 30, z: 1}
+  m_Center: {x: -2.9416714, y: 5, z: 0}
 --- !u!1 &869810244
 GameObject:
   m_ObjectHideFlags: 3
@@ -27143,8 +27158,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 30, y: 17, z: 1}
-  m_Center: {x: 2, y: 0, z: 0}
+  m_Size: {x: 30, y: 29.34747, z: 1}
+  m_Center: {x: 1.9, y: 5.3262653, z: 0}
 --- !u!1001 &928758162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28440,8 +28455,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 30, y: 17, z: 1}
-  m_Center: {x: 2, y: 0, z: 0}
+  m_Size: {x: 28, y: 29.34747, z: 1}
+  m_Center: {x: 1.9888191, y: 5.3262653, z: 0}
 --- !u!1 &968173459
 GameObject:
   m_ObjectHideFlags: 0
@@ -28695,51 +28710,6 @@ Canvas:
   m_SortingLayerID: -1620175883
   m_SortingOrder: 5
   m_TargetDisplay: 0
---- !u!1 &979652674
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 979652675}
-  - component: {fileID: 979652676}
-  m_Layer: 2
-  m_Name: CamerConfiner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &979652675
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979652674}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 726372095809612476}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &979652676
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979652674}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 30, y: 17, z: 1}
-  m_Center: {x: 2, y: 0, z: 0}
 --- !u!1 &980450295
 GameObject:
   m_ObjectHideFlags: 0
@@ -38303,7 +38273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ConfineMode: 1
-  m_BoundingVolume: {fileID: 213527047}
+  m_BoundingVolume: {fileID: 1481713257}
   m_BoundingShape2D: {fileID: 0}
   m_ConfineScreenEdges: 1
   m_Damping: 0
@@ -39610,7 +39580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ConfineMode: 1
-  m_BoundingVolume: {fileID: 213527047}
+  m_BoundingVolume: {fileID: 172985404}
   m_BoundingShape2D: {fileID: 965838907}
   m_ConfineScreenEdges: 1
   m_Damping: 0
@@ -42873,7 +42843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ConfineMode: 1
-  m_BoundingVolume: {fileID: 213527047}
+  m_BoundingVolume: {fileID: 869471787}
   m_BoundingShape2D: {fileID: 185275426}
   m_ConfineScreenEdges: 1
   m_Damping: 0
@@ -44244,6 +44214,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478352754}
   m_CullTransparentMesh: 0
+--- !u!1 &1481713256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1481713258}
+  - component: {fileID: 1481713257}
+  m_Layer: 2
+  m_Name: CamerConfiner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1481713257
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481713256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 38.014812, y: 30, z: 1}
+  m_Center: {x: -2.9416714, y: 5, z: 0}
+--- !u!4 &1481713258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481713256}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 77063631}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1489266193
 GameObject:
   m_ObjectHideFlags: 0
@@ -44727,8 +44742,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 30, y: 17, z: 1}
-  m_Center: {x: 2, y: 0, z: 0}
+  m_Size: {x: 28, y: 29.34747, z: 1}
+  m_Center: {x: 1.9888191, y: 5.3262653, z: 0}
 --- !u!1 &1514842945
 GameObject:
   m_ObjectHideFlags: 0
@@ -47343,7 +47358,7 @@ Transform:
   m_Children:
   - {fileID: 540569186}
   m_Father: {fileID: 77063631}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1570540916 stripped
 Transform:
@@ -48464,7 +48479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ConfineMode: 1
-  m_BoundingVolume: {fileID: 213527047}
+  m_BoundingVolume: {fileID: 1822621943}
   m_BoundingShape2D: {fileID: 354786931}
   m_ConfineScreenEdges: 1
   m_Damping: 0
@@ -49191,6 +49206,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640770885}
   m_CullTransparentMesh: 0
+--- !u!1 &1641493404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1641493406}
+  - component: {fileID: 1641493405}
+  m_Layer: 2
+  m_Name: CamerConfiner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1641493405
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641493404}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 30.651749, y: 29.34747, z: 1}
+  m_Center: {x: 1.8505402, y: 5.3262653, z: 0}
+--- !u!4 &1641493406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641493404}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 726372095809612476}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1641854211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51091,7 +51151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ConfineMode: 1
-  m_BoundingVolume: {fileID: 213527047}
+  m_BoundingVolume: {fileID: 967929412}
   m_BoundingShape2D: {fileID: 1461077856}
   m_ConfineScreenEdges: 1
   m_Damping: 0
@@ -55433,8 +55493,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 30, y: 17, z: 1}
-  m_Center: {x: 2, y: 0, z: 0}
+  m_Size: {x: 28, y: 29.34747, z: 1}
+  m_Center: {x: 1.9888191, y: 5.3262653, z: 0}
 --- !u!1 &1831848355
 GameObject:
   m_ObjectHideFlags: 0
@@ -55963,7 +56023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ConfineMode: 1
-  m_BoundingVolume: {fileID: 213527047}
+  m_BoundingVolume: {fileID: 1514660204}
   m_BoundingShape2D: {fileID: 185275426}
   m_ConfineScreenEdges: 1
   m_Damping: 0
@@ -65037,7 +65097,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.099976, y: 1}
+  m_AnchoredPosition: {x: -8.0998535, y: 1}
   m_SizeDelta: {x: 0, y: 101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2107046023
@@ -65925,7 +65985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ConfineMode: 1
-  m_BoundingVolume: {fileID: 213527047}
+  m_BoundingVolume: {fileID: 1641493405}
   m_BoundingShape2D: {fileID: 726372095521024699}
   m_ConfineScreenEdges: 1
   m_Damping: 0
@@ -65993,7 +66053,7 @@ Transform:
   - {fileID: 726372095707499339}
   - {fileID: 9000685910830080807}
   - {fileID: 1812430095}
-  - {fileID: 979652675}
+  - {fileID: 1641493406}
   - {fileID: 2650642}
   m_Father: {fileID: 1274425223}
   m_RootOrder: 2
@@ -66871,7 +66931,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 0
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -67797,7 +67857,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9006745139142300899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.15, y: -4.9, z: 0}
+  m_LocalPosition: {x: -11.52, y: -4.9, z: 0}
   m_LocalScale: {x: 2.5565999, y: 2.5565999, z: 2.5565999}
   m_ConstrainProportionsScale: 1
   m_Children: []
