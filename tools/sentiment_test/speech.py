@@ -30,7 +30,6 @@ def text_to_speech(input_text: str):
 
 
 if __name__ == '__main__':
-    print("请输入你想转为语音的文本 >")
-    text = input()
+    text = input("请输入你想转为语音的文本 >")
     result = text_to_speech(text)
     print(result)
