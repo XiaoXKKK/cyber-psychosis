@@ -1987,7 +1987,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 55822580}
-  - component: {fileID: 55822581}
   m_Layer: 5
   m_Name: Input
   m_TagString: Untagged
@@ -2018,19 +2017,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 126.100006}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &55822581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 55822579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a162bd7e098e3cb42b8a6099f561fa72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcController: {fileID: 0}
 --- !u!1 &57450451
 GameObject:
   m_ObjectHideFlags: 0
@@ -7196,6 +7182,63 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 191442791}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &195039009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 195039011}
+  - component: {fileID: 195039010}
+  m_Layer: 0
+  m_Name: GuideManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &195039010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195039009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6daba9dd93579ad4388067b157d07c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bed: {fileID: 0}
+  guideBed: {fileID: 0}
+  playerDoor: {fileID: 0}
+  guidePlayerDoor: {fileID: 0}
+  toUpCorridorDoor: {fileID: 0}
+  guideToUpCorridorDoor: {fileID: 0}
+  toDownCorridorDoor: {fileID: 0}
+  guideToDownCorridorDoor: {fileID: 0}
+  fadeTime: 0.5
+  duration: 8
+  horizontalCanvasGroup: {fileID: 0}
+  mouseCanvasGroup: {fileID: 0}
+  bagCanvasGroup: {fileID: 0}
+--- !u!4 &195039011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195039009}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 34
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &205043401
 GameObject:
   m_ObjectHideFlags: 0
@@ -22915,7 +22958,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 55822581}
+      - m_Target: {fileID: 1463769496}
         m_TargetAssemblyTypeName: UI_AIDialog, Assembly-CSharp
         m_MethodName: Send
         m_Mode: 1
@@ -43421,6 +43464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1463769495}
   - component: {fileID: 1463769494}
+  - component: {fileID: 1463769496}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -43457,6 +43501,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1463769496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463769493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a162bd7e098e3cb42b8a6099f561fa72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcController: {fileID: 0}
+  input: {fileID: 450542850}
 --- !u!1001 &1467007702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66821,7 +66879,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8040196610978649192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.973305, y: 5.2321033, z: 1.5703125}
+  m_LocalPosition: {x: 67.23457, y: 5.2321033, z: 1.5703125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66871,7 +66929,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
