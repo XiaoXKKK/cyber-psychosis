@@ -1,3 +1,5 @@
+
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,12 +22,12 @@ public class UI_AIDialog : MonoBehaviour
     private UdpClient udpClient;
     private IPEndPoint remoteEP;
 
-    private InputField input;
+    public InputField input;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        input = transform.Find("InputField").GetComponent<InputField>();
+        UnityEngine.Debug.Log(System.Environment.CurrentDirectory);
+        // input = transform.Find("DialogCanvas/Input/InputField").GetComponent<InputField>();
 
         Kill_All_Python_Process();
 
@@ -42,7 +44,11 @@ public class UI_AIDialog : MonoBehaviour
         //设置好解析的方法
         manager.SetReceiveCallBack(ReceiveUDPMessage);
 
+#if PYTEST
         StartSubProcess();
+#else
+        StartSubProcessFromExe();
+#endif
     }
 
     [Serializable]
@@ -96,34 +102,53 @@ public class UI_AIDialog : MonoBehaviour
         // 运行python的文件名
         string fileName = "gpt_test.py";
         // 获取Unity项目的数据路径
-        string dataPath = Application.dataPath;
+        string currdir = System.Environment.CurrentDirectory;
         // 拼接Python文件的完整路径
-        string pythonPath = dataPath + "/" + "Python";
+        string pythonPath = currdir + "/" + "Python";
         string fullPath = pythonPath + "/" + fileName;
         // 设置命令行参数
         string command = "/c python \"" + fullPath + "\"";
 
         // 创建ProcessStartInfo对象
-        startInfo = new ProcessStartInfo();
-        // 设定执行cmd
-        startInfo.FileName = "cmd.exe";
-        // 设置工作目录
-        startInfo.WorkingDirectory = pythonPath;
-        // 输入参数是上一步的command字符串
-        startInfo.Arguments = command;
-        // 因为嵌入Unity中后台使用，所以设置不显示窗口
-        startInfo.CreateNoWindow = true;
-        // 这里需要设定为false（使用CreateProcess创建进程）
-        startInfo.UseShellExecute = false;
+        startInfo = new ProcessStartInfo
+        {
+            // 设定执行cmd
+            FileName = "cmd.exe",
+            // 设置工作目录
+            WorkingDirectory = pythonPath,
+            // 输入参数是上一步的command字符串
+            Arguments = command,
+            // 因为嵌入Unity中后台使用，所以设置不显示窗口
+            CreateNoWindow = true,
+            // 这里需要设定为false（使用CreateProcess创建进程）
+            UseShellExecute = false
+        };
 
         // 创建Process
-        process = new Process();
-        process.StartInfo = startInfo;
-
-        //启动脚本Process，并且激活逐行读取输出与报错
-        process.Start();
+        Process.Start(startInfo);
     }
+    private void StartSubProcessFromExe()
+    {
+        // 获取Unity项目的数据路径
+        string currdir = System.Environment.CurrentDirectory;
+        // 拼接exe的完整路径
+        string pythonPath = currdir + "/" + "Python";
 
+        // 创建ProcessStartInfo对象
+        startInfo = new ProcessStartInfo
+        {
+            // 设定执行打包的exe
+            FileName = pythonPath + "/" + "gpt_test.exe",
+            // 设置工作目录
+            WorkingDirectory = pythonPath,
+            // 因为嵌入Unity中后台使用，所以设置不显示窗口
+            CreateNoWindow = true,
+            // 这里需要设定为false（使用CreateProcess创建进程）
+            UseShellExecute = false
+        };
+
+        Process.Start(startInfo);
+    }
     void Kill_All_Python_Process()
     {
         Process[] allProcesses = Process.GetProcesses();
@@ -131,10 +156,15 @@ public class UI_AIDialog : MonoBehaviour
         {
             try
             {
+#if PYTEST
+                string contain = "python";
+#else
+                string contain = "gpt_test";
+#endif
                 // 获取进程的名称
                 string processName = process_1.ProcessName;
                 // 如果进程名称中包含"python"，则终止该进程
-                if (processName.ToLower().Contains("python") && process_1.Id != Process.GetCurrentProcess().Id)
+                if (processName.ToLower().Contains(contain) && process_1.Id != Process.GetCurrentProcess().Id)
                 {
                     process_1.Kill();
                 }
