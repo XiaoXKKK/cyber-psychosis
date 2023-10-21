@@ -1,7 +1,6 @@
 from gpt import Agent
 import json
-# 暂时禁用语音
-# import speech
+import speech
 
 def save_to_json(data, filename):
     with open(filename, 'w',encoding="utf-8") as json_file:
@@ -20,7 +19,7 @@ if __name__ == '__main__':
     content = input("主角：")
 
     # answer是unity组应该接收到的python.json格式，ask_gpt是单次对话实现
-    answer = new_agent.ask_gpt(content)
+    answer = new_agent.ask_gpt(content,60)
     print(answer)
 
     # 可以暂时禁用，因为azure的服务要给钱
