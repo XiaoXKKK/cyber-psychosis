@@ -185,7 +185,7 @@ public class ItemSystem : MonoBehaviour, MMEventListener<MMInventoryEvent>
         }
         else if (DestroyedRobotOpenInventory)
         {
-            return"DestroyedRobot";
+            return "DestroyedRobot";
         }
         return "Nobody";
     }

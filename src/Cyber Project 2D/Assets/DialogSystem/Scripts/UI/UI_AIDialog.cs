@@ -61,6 +61,15 @@ public class UI_AIDialog : MonoBehaviour
     }
     public void Send()
     {
+        if (NewDaySystem.Instance.AItimes > 0)
+        {
+            NewDaySystem.Instance.AItimes--;
+        }
+        else
+        {
+            UI_Dialog.Instance.InitDialog(UI_Dialog.Instance.aiend);
+            return;
+        }
         UnityEngine.Debug.Log(input.text);
         NPC_Base curr = UI_Dialog.Instance.Currnpc;
         UnityJsonData jsonData = new()

@@ -19,11 +19,10 @@ public class UI_Dialog : MonoBehaviour
 
     private DialogConf currconf;
     private int currindex;
-
-    public Dictionary<string, int> scores;
     public NPC_Base Currnpc { set; get; }
 
     private UI_Click ui_Click;
+    public DialogConf aiend;
     private void Awake()
     {
         Instance = this;
@@ -36,6 +35,7 @@ public class UI_Dialog : MonoBehaviour
         content = transform.Find("Main/Scroll View/Viewport/Content").GetComponent<RectTransform>();
         Options = transform.Find("Options");
         prefab_OptionItem = Resources.Load<GameObject>("Options_Item");
+        aiend = Resources.Load<DialogConf>("AIEnd");
     }
     
     public void SaySth(string txt)
@@ -44,10 +44,9 @@ public class UI_Dialog : MonoBehaviour
     }
     public void InitDialog(DialogConf conf)
     {
+        input.SetActive(false);
         currconf = conf;
-
         currindex = 0;
-
         StartDialog(currconf, currindex);
     }
 
@@ -124,8 +123,13 @@ public class UI_Dialog : MonoBehaviour
     }
     private void AIDialogEvent()
     {
-        input.SetActive(true);
-        ui_Click.enabled = false;
+        if (NewDaySystem.Instance.AItimes > 0)
+        {
+            input.SetActive(true);
+            ui_Click.enabled = false;
+        }
+        else
+            InitDialog(aiend);
     }
     private void NextDialogEvent()
     {
