@@ -65,21 +65,17 @@ public class ItemSystem : MonoBehaviour, MMEventListener<MMInventoryEvent>
         if (name == "Aelia")
         {
             AeliaOpenInventory = true;
-        }else
-        {
             SephiraOpenInventory = false;
-            EvelynOpenInventory = false; 
+            EvelynOpenInventory = false;
             SherylinaOpenInventory = false;
             MystiqueOpenInventory = false;
             VidoraOpenInventory = false;
             PlayerOpenInventory = false;
             DestroyedRobotOpenInventory = false;
         }
-        if (name == "Evelyn")
+        else if (name == "Evelyn")
         {
             EvelynOpenInventory = true;
-        }else
-        {
             AeliaOpenInventory = false;
             SephiraOpenInventory = false;
             SherylinaOpenInventory = false;
@@ -88,11 +84,9 @@ public class ItemSystem : MonoBehaviour, MMEventListener<MMInventoryEvent>
             PlayerOpenInventory = false;
             DestroyedRobotOpenInventory = false;
         }
-        if (name == "Sherylina")
+        else if (name == "Sherylina")
         {
             SherylinaOpenInventory = true;
-        }else
-        {
             AeliaOpenInventory = false;
             EvelynOpenInventory = false;
             SephiraOpenInventory = false;
@@ -101,11 +95,9 @@ public class ItemSystem : MonoBehaviour, MMEventListener<MMInventoryEvent>
             PlayerOpenInventory = false;
             DestroyedRobotOpenInventory = false;
         }
-        if (name == "Mystique")
+        else if (name == "Mystique")
         {
             MystiqueOpenInventory = true;
-        }else
-        {
             AeliaOpenInventory = false;
             EvelynOpenInventory = false;
             SherylinaOpenInventory = false;
@@ -114,11 +106,9 @@ public class ItemSystem : MonoBehaviour, MMEventListener<MMInventoryEvent>
             PlayerOpenInventory = false;
             DestroyedRobotOpenInventory = false;
         }
-        if (name == "Vidora")
+        else if (name == "Vidora")
         {
             VidoraOpenInventory = true;
-        }else
-        {
             AeliaOpenInventory = false;
             EvelynOpenInventory = false;
             SherylinaOpenInventory = false;
@@ -127,11 +117,9 @@ public class ItemSystem : MonoBehaviour, MMEventListener<MMInventoryEvent>
             PlayerOpenInventory = false;
             DestroyedRobotOpenInventory = false;
         }
-        if (name == "Sephira")
+        else if (name == "Sephira")
         {
             SephiraOpenInventory = true;
-        }else
-        {
             AeliaOpenInventory = false;
             EvelynOpenInventory = false;
             SherylinaOpenInventory = false;
@@ -140,11 +128,9 @@ public class ItemSystem : MonoBehaviour, MMEventListener<MMInventoryEvent>
             PlayerOpenInventory = false;
             DestroyedRobotOpenInventory = false;
         }
-        if (name == "Player")
+        else if (name == "Player")
         {
             PlayerOpenInventory = true;
-        }else
-        {
             AeliaOpenInventory = false;
             EvelynOpenInventory = false;
             SherylinaOpenInventory = false;
@@ -153,12 +139,9 @@ public class ItemSystem : MonoBehaviour, MMEventListener<MMInventoryEvent>
             SephiraOpenInventory = false;
             DestroyedRobotOpenInventory = false;
         }
-        if (name == "DestroyedRobot")
+        else if (name == "DestroyedRobot")
         {
             DestroyedRobotOpenInventory = true;
-        }
-        else
-        {
             AeliaOpenInventory = false;
             EvelynOpenInventory = false;
             SherylinaOpenInventory = false;

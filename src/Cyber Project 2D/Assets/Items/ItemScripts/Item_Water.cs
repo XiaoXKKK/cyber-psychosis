@@ -59,7 +59,11 @@ namespace MoreMountains.CorgiEngine
                 NPC_Aelia.Instance.Buff("Water");
                 return false;
             }
-
+            if (GuideManager.GuideMode)
+            {
+                GuideManager.Instance.DrinkWater();
+                return true;
+            }
             NarratorSystem.Instance.SendItemInfo("你现在并不想喝纯净水。");
             NarratorSystem.Instance.ShowInfo(1);
             return false;
