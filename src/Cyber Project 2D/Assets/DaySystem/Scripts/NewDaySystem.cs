@@ -104,4 +104,9 @@ public class NewDaySystem : MonoBehaviour
         }
     }
 #endregion
+
+    public void BackToStartScreen()
+    {
+        MMSceneLoadingManager.LoadScene("StartScreen");
+    }
 }
