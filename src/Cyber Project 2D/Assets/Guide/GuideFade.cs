@@ -43,7 +43,6 @@ public class GuideFade : MonoBehaviour
     //------------------------------------------
     public void StartFadeIn()
     {
-        NewDaySystem.Instance.dayCount++;
         GameObject.FindWithTag("Player").GetComponent<CharacterHorizontalMovement>().AbilityPermitted = false;
         ToCinema();
     }

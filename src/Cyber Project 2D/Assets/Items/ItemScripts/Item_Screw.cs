@@ -37,7 +37,7 @@ namespace MoreMountains.CorgiEngine
             else if(ItemSystem.Instance.WhoIsOpeningInventory() == "Player")
             {
                 NarratorSystem.Instance.ShowInfo("ÂÝË¿¶¤Ã»Ê²Ã´ÓÃ");
-                return true;
+                return false;
             }
             else
             {
