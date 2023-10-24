@@ -84,8 +84,10 @@ public class UI_AIDialog : MonoBehaviour
             name = curr.npcname,
             now_state = curr.favorability
         };
+        UI_Dialog.Instance.SaySth("......");
         byte[] message = Encoding.UTF8.GetBytes(JsonUtility.ToJson(jsonData));
         udpClient.Send(message, message.Length, remoteEP);
+        UI_Dialog.Instance.input.SetActive(false);
     }
 
     void ReceiveUDPMessage(string receiveData)
@@ -95,6 +97,7 @@ public class UI_AIDialog : MonoBehaviour
         PythonJsonData data = JsonUtility.FromJson<PythonJsonData>(receiveData);
         UI_Dialog.Instance.SaySth(data.content);
         UI_Dialog.Instance.UpdateScore(data.score);
+        UI_Dialog.Instance.input.SetActive(true);
     }
 
     private void StartSubProcess()

@@ -15,7 +15,7 @@ public class UI_Dialog : MonoBehaviour
     private RectTransform content;
     private Transform Options;
     private GameObject prefab_OptionItem;
-    private GameObject input;
+    public GameObject input;
 
     private DialogConf currconf;
     private int currindex;
