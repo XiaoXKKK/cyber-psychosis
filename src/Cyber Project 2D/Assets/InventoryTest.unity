@@ -16291,7 +16291,7 @@ Transform:
   m_Children:
   - {fileID: 1991236112}
   m_Father: {fileID: 1894348966}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &545418375
 MonoBehaviour:
@@ -23274,14 +23274,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 779069055}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -118.7125, y: -14.2625, z: 0}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2083047527}
-  m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_Father: {fileID: 1894348966}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &781182276
 GameObject:
@@ -24531,7 +24531,7 @@ Transform:
   m_Children:
   - {fileID: 508228896}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &836709483
 PrefabInstance:
@@ -32126,6 +32126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69cdd0ffcd5a4e743987966025c42641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 0}
   aiend: {fileID: 0}
 --- !u!114 &1094428520
 MonoBehaviour:
@@ -34511,7 +34512,7 @@ Transform:
   m_Children:
   - {fileID: 867936854}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &1151028986
 GameObject:
@@ -36907,7 +36908,7 @@ Transform:
   m_Children:
   - {fileID: 719495712}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235909417
 GameObject:
@@ -41825,7 +41826,7 @@ Transform:
   m_Children:
   - {fileID: 1252519001}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1399222101
 Camera:
@@ -45388,7 +45389,7 @@ Transform:
   m_Children:
   - {fileID: 105051604}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1532804359
 PrefabInstance:
@@ -57093,19 +57094,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1869030303}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 483222863}
-        m_TargetAssemblyTypeName: MoreMountains.InventoryEngine.ItemPicker, MoreMountains.InventoryEngine
-        m_MethodName: Pick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1869030303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58568,9 +58557,10 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 779069056}
   - {fileID: 545418374}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1894388745
 GameObject:
@@ -59083,7 +59073,7 @@ Transform:
   m_Children:
   - {fileID: 1929033593}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1907398584
 PrefabInstance:
@@ -66348,7 +66338,7 @@ Transform:
   - {fileID: 3053595130321096084}
   - {fileID: 1163254517}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3057585063622652801
 MonoBehaviour:
@@ -66872,7 +66862,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
