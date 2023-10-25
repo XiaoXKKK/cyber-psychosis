@@ -58,23 +58,22 @@ public class UI_Dialog : MonoBehaviour
         head.sprite = model.NPCConf.Head;
         nameText.text = model.NPCConf.Name;
         mainText.text = "";
-        ui_Click.enabled = false;
-
         // 删除已有的玩家选项
         Transform[] items = Options.GetComponentsInChildren<Transform>();
         for(int i = 1; i < items.Length; i++)
         {
             Destroy(items[i].gameObject);
         }
-
         // 说话
+        StartCoroutine(DoMainTextEF(model.NPCContent));
+        
         if (model.selects.Count == 0)
         {
-            StartCoroutine(DoMainTextEF(model.NPCContent, true));
+            ui_Click.enabled = true;
         }
         else
         {
-            StartCoroutine(DoMainTextEF(model.NPCContent, false));
+            ui_Click.enabled = false;
             // 根据配置生成选项
             for (int i = 0; i < model.selects.Count; i++)
             {
@@ -158,9 +157,9 @@ public class UI_Dialog : MonoBehaviour
         currindex = index;
         StartDialog(currconf, currindex);
     }
-    IEnumerator DoMainTextEF(string txt, bool waiting=false)
+    IEnumerator DoMainTextEF(string txt)
     {
-        // 字符数量决定了 conteng的高 每23个字符增加25的高
+        // 字符数量决定了 content的高 每23个字符增加25的高
         float addHeight = txt.Length / 23 + 1;
         content.sizeDelta = new Vector2(content.sizeDelta.x, addHeight*25);
 
@@ -176,8 +175,5 @@ public class UI_Dialog : MonoBehaviour
                 content.anchoredPosition = new Vector2(content.anchoredPosition.x, content.anchoredPosition.y+25);
             }
         }
-        if (waiting)
-            ui_Click.enabled = true;
     }
-   
 }
