@@ -6,29 +6,24 @@ using UnityEngine;
 
 public class NPC_Evelyn : NPC_Base
 {
-    public DialogConf conf0;
-    public DialogConf confai;
-
     public NPC_Evelyn() : base()
     {
         npcname = "Evelyn";
     }
 
-    public void StartDialog()
+    public override void UpdateQueue()
     {
-        if (favorability < 50)
-        {
-            DialogueManager.Instance.StartDialog(conf0);
-        }
-        else
-            DialogueManager.Instance.StartDialog(confai);
+        if (Favorability >= 50 && !thresholdsTriggered[0])
+            Enqueue(0);
+        if (Favorability >= 70 && !thresholdsTriggered[1])
+            Enqueue(1);
     }
 
     public void Buff(string itemName)
     {
         if (itemName == "Coffee")
         {
-            favorability += 10;
+            Favorability += 10;
             NarratorSystem.Instance.SendDialogueInfo("Evelyn喝了可乐，好感度增加了10");
             NarratorSystem.Instance.ShowInfo(3);
         }
@@ -39,7 +34,7 @@ public class NPC_Evelyn : NPC_Base
         }
         else
         { 
-            favorability -= 10;
+            Favorability -= 10;
             NarratorSystem.Instance.SendDialogueInfo("Evelyn觉得这个并不好喝，好感度减少了10");
         }
     }

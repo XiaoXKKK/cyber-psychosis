@@ -10,12 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce37e28aa7f45334baa7b6097705e207, type: 3}
-  m_Name: AIEnd
+  m_Name: Vi_1 1
   m_EditorClassIdentifier: 
   dialogs:
+  - NPCConf: {fileID: 11400000, guid: ee86fcb4d21746c46b209081129bf60e, type: 2}
+    NPCHead: {fileID: 21300000, guid: 52bfe297bac3d8245b6854704623f725, type: 3}
+    NPCContent: "\u4F60\u6709\u4EC0\u4E48\u4E8B\u60C5\u5417\n"
+    events: []
+    selects: []
   - NPCConf: {fileID: 11400000, guid: e61d2bf30bb3ed547829ee7e25eeb2a0, type: 2}
     NPCHead: {fileID: 21300000, guid: c6efc451675253f41b44c9aff31f4c46, type: 3}
-    NPCContent: "\u65F6\u95F4\u4E0D\u65E9\u4E86\uFF0C\u4E0D\u80FD\u518D\u95F2\u804A\u4E86"
+    NPCContent: "\uFF08\u804A\u7FBD\u6BDB\u7403\uFF09"
     events:
     - DialogEvent: 1
       Args: 

@@ -6,23 +6,22 @@ using UnityEngine;
 
 public class NPC_Vidora : NPC_Base
 {
-    public DialogConf conf0;
-    public DialogConf confai;
-
+    public DialogConf aiconf;
+    public bool getmessage; 
     public NPC_Vidora() : base()
     {
         npcname = "Vidora";
     }
-    public void StartDialog()
+    public override void UpdateQueue()
     {
-        if (favorability < 50)
+        if (getmessage && !thresholdsTriggered[0])
         {
-            DialogueManager.Instance.StartDialog(conf0);
+            Enqueue(0);
+            defaultConf = aiconf;
         }
-        else
-            DialogueManager.Instance.StartDialog(confai);
+        if (Favorability >= 70 && !thresholdsTriggered[1])
+            Enqueue(1);
     }
-
     public void Buff(string itemName)
     {
         NarratorSystem.Instance.ShowInfo("医生并不渴。");

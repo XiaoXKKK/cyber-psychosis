@@ -6,24 +6,16 @@ using UnityEngine;
 
 public class NPC_Mystique : NPC_Base
 {
-    public DialogConf conf0;
-    public DialogConf confai;
 
     public NPC_Mystique() : base()
     {
         npcname = "Mystique";
     }
-
-    public void StartDialog()
+    public override void UpdateQueue()
     {
-        if (favorability < 50)
-        {
-            DialogueManager.Instance.StartDialog(conf0);
-        }
-        else
-            DialogueManager.Instance.StartDialog(confai);
+        if (Favorability >= 50 && !thresholdsTriggered[0])
+            Enqueue(0);
     }
-
     public void Buff(string itemName)
     {
         if (itemName == "Sedative")
@@ -39,7 +31,7 @@ public class NPC_Mystique : NPC_Base
     {
         if (itemName == "Screw")
         {
-            favorability += 10;
+            Favorability += 10;
             NarratorSystem.Instance.SendDialogueInfo("迷梦拿到了螺丝钉，好感度增加了10");
         }
         else

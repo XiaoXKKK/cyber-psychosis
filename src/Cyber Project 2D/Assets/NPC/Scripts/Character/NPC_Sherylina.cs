@@ -7,22 +7,18 @@ using UnityEngine;
 public class NPC_Sherylina : NPC_Base
 {
 
-    public DialogConf conf0;
-    public DialogConf confai;
-
     public NPC_Sherylina() : base()
     {
         npcname = "Sherylina";
     }
-
-    public void StartDialog()
+    public override void UpdateQueue()
     {
-        if (favorability < 50)
-        {
-            DialogueManager.Instance.StartDialog(conf0);
-        }
-        else
-            DialogueManager.Instance.StartDialog(confai);
+        if (Favorability >= 50 && !thresholdsTriggered[0])
+            Enqueue(0);
+        if (Favorability >= 70 && !thresholdsTriggered[1])
+            Enqueue(1);
+        if (Favorability >= 90 && !thresholdsTriggered[2])
+            Enqueue(2);
     }
 
     public void Buff(string itemName)
@@ -35,13 +31,13 @@ public class NPC_Sherylina : NPC_Base
         else if (itemName == "Cola")
         {
             NarratorSystem.Instance.SendDialogueInfo("雪喝了可乐，好感度增加了10");
-            favorability += 10;
+            Favorability += 10;
             NarratorSystem.Instance.ShowInfo(3);
         }
         else if (itemName == "Coffee")
         {
             NarratorSystem.Instance.SendDialogueInfo("雪喝了咖啡，好感度减少了10");
-            favorability -= 10;
+            Favorability -= 10;
             NarratorSystem.Instance.ShowInfo(3);
         }else if(itemName== "Sedative")
         {
@@ -54,7 +50,7 @@ public class NPC_Sherylina : NPC_Base
     {
         if (itemName == "BrokenCatDoll")
         {
-            favorability += 20;
+            Favorability += 20;
             NarratorSystem.Instance.SendDialogueInfo("雪拿到了破损的猫猫玩偶，好感度增加了20");
         }
         else

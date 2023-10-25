@@ -82,7 +82,7 @@ public class UI_AIDialog : MonoBehaviour
         {
             content = input.text,
             name = curr.npcname,
-            now_state = curr.favorability
+            now_state = curr.Favorability
         };
         UI_Dialog.Instance.SaySth("......");
         byte[] message = Encoding.UTF8.GetBytes(JsonUtility.ToJson(jsonData));

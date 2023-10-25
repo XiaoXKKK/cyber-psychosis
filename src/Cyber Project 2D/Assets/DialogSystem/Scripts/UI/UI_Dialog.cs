@@ -57,8 +57,8 @@ public class UI_Dialog : MonoBehaviour
         // 修改图像和名字
         head.sprite = model.NPCConf.Head;
         nameText.text = model.NPCConf.Name;
-        // 说话
-        StartCoroutine(DoMainTextEF(model.NPCContent));
+        mainText.text = "";
+        ui_Click.enabled = false;
 
         // 删除已有的玩家选项
         Transform[] items = Options.GetComponentsInChildren<Transform>();
@@ -67,13 +67,14 @@ public class UI_Dialog : MonoBehaviour
             Destroy(items[i].gameObject);
         }
 
+        // 说话
         if (model.selects.Count == 0)
         {
-            ui_Click.enabled = true;
+            StartCoroutine(DoMainTextEF(model.NPCContent, true));
         }
         else
         {
-            ui_Click.enabled = false;
+            StartCoroutine(DoMainTextEF(model.NPCContent, false));
             // 根据配置生成选项
             for (int i = 0; i < model.selects.Count; i++)
             {
@@ -98,7 +99,14 @@ public class UI_Dialog : MonoBehaviour
                 NextDialogEvent();
                 break;
             case DialogEventEnum.ExitDialog:
-                ExitDialogEvent();
+                ui_Click.end = true;
+                if (args.Length > 0)
+                {
+                    if (args == "Vidora")
+                        NPC_Vidora.Instance.getmessage = true;
+                    else if (args == "Sephira")
+                        NPC_Sephira.Instance.getmessage = true;
+                }
                 break;
             case DialogEventEnum.JumpDialog:
                 JumpDialogEvent(int.Parse(args));
@@ -119,7 +127,7 @@ public class UI_Dialog : MonoBehaviour
     public void UpdateScore(int num)
     {
         Debug.Log(nameText.text + num.ToString());
-        Currnpc.favorability += num;
+        Currnpc.Favorability += num;
     }
     private void AIDialogEvent()
     {
@@ -150,7 +158,7 @@ public class UI_Dialog : MonoBehaviour
         currindex = index;
         StartDialog(currconf, currindex);
     }
-    IEnumerator DoMainTextEF(string txt)
+    IEnumerator DoMainTextEF(string txt, bool waiting=false)
     {
         // 字符数量决定了 conteng的高 每23个字符增加25的高
         float addHeight = txt.Length / 23 + 1;
@@ -160,7 +168,7 @@ public class UI_Dialog : MonoBehaviour
         for (int i = 0; i < txt.Length; i++)
         {
             currStr += txt[i];
-            yield return new WaitForSeconds(0.08f);
+            yield return new WaitForSeconds(0.05f);
             mainText.text = currStr;
             // 每满23个字，下移一个距离 25
             if (i>23*3&&i % 23 == 0)
@@ -168,6 +176,8 @@ public class UI_Dialog : MonoBehaviour
                 content.anchoredPosition = new Vector2(content.anchoredPosition.x, content.anchoredPosition.y+25);
             }
         }
+        if (waiting)
+            ui_Click.enabled = true;
     }
    
 }
