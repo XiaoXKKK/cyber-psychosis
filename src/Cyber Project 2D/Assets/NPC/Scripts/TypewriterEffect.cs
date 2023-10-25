@@ -51,7 +51,7 @@ public class TypewriterEffect : MonoBehaviour
 
         if (isActive)
         {
-            timer += Time.deltaTime;
+            timer += Time.unscaledDeltaTime;
             if (timer >= charsPerSecond)
             {//判断计时器时间是否到达
                 timer = 0;
