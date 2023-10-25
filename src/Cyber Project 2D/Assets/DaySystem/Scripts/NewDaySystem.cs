@@ -20,12 +20,17 @@ public class NewDaySystem : MonoBehaviour
     GameObject DOWN;
 
     float virtualCameraSize=5f;
+
+    GameObject CupFetch;
+    GameObject SedtiveFetch;
     void Start()
     {
         dayText = GameObject.Find("DayCount").GetComponent<Text>();
         UP= GameObject.Find("UP");
         DOWN= GameObject.Find("DOWN");
         StartFadeOut();
+        CupFetch = GameObject.Find("CupFetch");
+        SedtiveFetch = GameObject.Find("SedtiveFetch");
     }
     private void Update()
     {
@@ -33,10 +38,11 @@ public class NewDaySystem : MonoBehaviour
         
     }
     public void StartFadeOut()
-    {
+    {    
         GameObject.FindWithTag("Player").GetComponent<CharacterHorizontalMovement>().AbilityPermitted = false;
         virtualCamera.m_Lens.OrthographicSize = 5f;
         FadeOut();
+        Invoke("RespwanItems", 0.1f);
     }
   
     void FadeOut()
@@ -46,6 +52,7 @@ public class NewDaySystem : MonoBehaviour
     }
     void ShowDayUI()
     {
+        RespwanItems();
         dayUI.PlayFeedbacks();
         Invoke("ToRegular", 5f);
     }
@@ -65,7 +72,6 @@ public class NewDaySystem : MonoBehaviour
     public void StartFadeIn()
     {
         AItimes = 3;
-        dayCount++;
         GameObject.FindWithTag("Player").GetComponent<CharacterHorizontalMovement>().AbilityPermitted = false;
         ToCinema();
     }
@@ -82,6 +88,7 @@ public class NewDaySystem : MonoBehaviour
     }
     void FadeIn()
     {
+        dayCount++;
         MMFadeInEvent.Trigger(2f, tweenType, 0);
         Invoke("StartFadeOut", 4f);
     }
@@ -108,5 +115,17 @@ public class NewDaySystem : MonoBehaviour
     public void BackToStartScreen()
     {
         MMSceneLoadingManager.LoadScene("StartScreen");
+    }
+
+    public void RespwanItems()
+    {
+        ItemSystem.Instance.RespawnTargetItem("EmptyCup");
+        CupFetch.SetActive(true);
+        //如果天数为奇数，就刷新一次
+        if (dayCount % 2 == 1)
+        {
+            ItemSystem.Instance.RespawnTargetItem("Sedtive");
+            SedtiveFetch.SetActive(true);
+        }
     }
 }
