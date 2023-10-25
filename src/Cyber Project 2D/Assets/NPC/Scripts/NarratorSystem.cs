@@ -38,7 +38,7 @@ public class NarratorSystem : MonoBehaviour
        
             if (timer > 0)
             {
-                timer -= Time.deltaTime;
+                timer -= Time.unscaledDeltaTime;
             }
             else
             {

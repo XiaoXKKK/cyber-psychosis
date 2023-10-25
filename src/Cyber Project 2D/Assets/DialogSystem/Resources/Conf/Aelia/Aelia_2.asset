@@ -17,5 +17,7 @@ MonoBehaviour:
     NPCHead: {fileID: 21300000, guid: f1ec99c35e47c2240b2f0f88ec542fc0, type: 3}
     NPCContent: "\u6709\u9700\u8981\u5E2E\u5FD9\u7684\u5417\u0295 \u1D54\u1D25\u1D54
       \u0294"
-    events: []
+    events:
+    - DialogEvent: 1
+      Args: 
     selects: []
