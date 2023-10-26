@@ -40,7 +40,9 @@ public class UI_Dialog : MonoBehaviour
     
     public void SaySth(string txt)
     {
-        StartCoroutine(DoMainTextEF(txt));
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+        coroutine = StartCoroutine(DoMainTextEF(txt));
     }
     public void InitDialog(DialogConf conf)
     {
@@ -49,7 +51,7 @@ public class UI_Dialog : MonoBehaviour
         currindex = 0;
         StartDialog(currconf, currindex);
     }
-
+    Coroutine coroutine;
     private void StartDialog(DialogConf conf, int index)
     {
         DialogModel model = conf.dialogs[index];
@@ -65,7 +67,9 @@ public class UI_Dialog : MonoBehaviour
             Destroy(items[i].gameObject);
         }
         // 说话
-        StartCoroutine(DoMainTextEF(model.NPCContent));
+        if(coroutine != null)
+            StopCoroutine(coroutine);
+        coroutine = StartCoroutine(DoMainTextEF(model.NPCContent));
         
         if (model.selects.Count == 0)
         {
@@ -136,7 +140,11 @@ public class UI_Dialog : MonoBehaviour
             ui_Click.enabled = false;
         }
         else
+        {
+            StopCoroutine(nameof(DoMainTextEF));
             InitDialog(aiend);
+        }
+
     }
     private void NextDialogEvent()
     {
