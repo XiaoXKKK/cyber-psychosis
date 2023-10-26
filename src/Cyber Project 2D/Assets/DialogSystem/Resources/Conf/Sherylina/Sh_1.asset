@@ -43,5 +43,5 @@ MonoBehaviour:
     NPCContent: "\u6CA1\u95EE\u9898"
     events:
     - DialogEvent: 1
-      Args: 
+      Args: CatDollFetch
     selects: []

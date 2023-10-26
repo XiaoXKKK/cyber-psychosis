@@ -16,11 +16,12 @@ public class UI_Dialog : MonoBehaviour
     private Transform Options;
     private GameObject prefab_OptionItem;
     public GameObject input;
+    public GameObject items;
 
     private DialogConf currconf;
     private int currindex;
     public NPC_Base Currnpc { set; get; }
-
+    
     private UI_Click ui_Click;
     public DialogConf aiend;
     private void Awake()
@@ -109,6 +110,10 @@ public class UI_Dialog : MonoBehaviour
                         NPC_Vidora.Instance.getmessage = true;
                     else if (args == "Sephira")
                         NPC_Sephira.Instance.getmessage = true;
+                    else
+                    {
+                        items.transform.Find(args).gameObject.SetActive(true);
+                    }
                 }
                 break;
             case DialogEventEnum.JumpDialog:

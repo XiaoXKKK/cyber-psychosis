@@ -45,5 +45,5 @@ MonoBehaviour:
     NPCContent: "\u5F88\u53EF\u4EE5\u554A\uFF0C\u6709\u673A\u4F1A\u4EA4\u6D41\u4EA4\u6D41"
     events:
     - DialogEvent: 1
-      Args: 
+      Args: MoneyFetch
     selects: []
