@@ -20,7 +20,7 @@ MonoBehaviour:
     selects: []
   - NPCConf: {fileID: 11400000, guid: e61d2bf30bb3ed547829ee7e25eeb2a0, type: 2}
     NPCHead: {fileID: 21300000, guid: c6efc451675253f41b44c9aff31f4c46, type: 3}
-    NPCContent: "\u6211\u5DF2\u7ECF\u4FDD\u6301\u4E861\u7C73\u793E\u4EA4\u5B89\u5168\u8DDD\u79BB\u4E86\u5973\uFF08\u5979\u7684\u58F0\u97F3\u771F\u5C0F\uFF09"
+    NPCContent: "\u6211\u5DF2\u7ECF\u4FDD\u6301\u4E861\u7C73\u793E\u4EA4\u5B89\u5168\u8DDD\u79BB\u4E86\u5462\uFF08\u5979\u7684\u58F0\u97F3\u771F\u5C0F\uFF09"
     events: []
     selects: []
   - NPCConf: {fileID: 11400000, guid: ecf5b672cabec9845b6e6febc357cb96, type: 2}
