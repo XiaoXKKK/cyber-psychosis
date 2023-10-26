@@ -41,7 +41,7 @@ namespace MoreMountains.CorgiEngine
             }
             else
             {
-                NarratorSystem.Instance.ShowInfo("这个人并不需要螺丝钉。");
+                NarratorSystem.Instance.ShowInfo("这个人并不需要破损的玩具猫。");
                 return false;
             }
         }

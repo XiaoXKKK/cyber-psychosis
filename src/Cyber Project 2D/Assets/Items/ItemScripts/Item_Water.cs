@@ -86,13 +86,13 @@ namespace MoreMountains.CorgiEngine
             {
                 if (item != null && item.ItemID == "Water")
                 {
-                    NarratorSystem.Instance.SendInteractionInfo("你没有空杯子，无法纯净水。");
+                    NarratorSystem.Instance.SendInteractionInfo("你没有空杯子，无法获取纯净水。");
                     NarratorSystem.Instance.ShowInfo(4);
                     GameObject.Find("MainInventory").GetComponent<Inventory>().RemoveItemByID(item.ItemID, 1);
                     return false;
                 }
             }
-            NarratorSystem.Instance.SendInteractionInfo("你没有空杯子，无法拾取纯净水。");
+            NarratorSystem.Instance.SendInteractionInfo("你没有空杯子，无法获取纯净水。");
             NarratorSystem.Instance.ShowInfo(4);
             return false;
         }
