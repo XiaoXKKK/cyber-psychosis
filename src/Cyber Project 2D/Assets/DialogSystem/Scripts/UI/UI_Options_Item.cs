@@ -12,8 +12,8 @@ public class UI_Options_Item : MonoBehaviour,IPointerEnterHandler,IPointerExitHa
 
     private DialogPlayerSelect dialogPlayerSelect;
 
-    private Color blackColor = new Color(0, 0, 0, 0.6f);
-    private Color whiteColor = new Color(1, 1, 1, 0.6f);
+    private Color selectColor = new Color(1, 1, 1, 1f);
+    private Color whiteColor = new Color(1, 1, 1, 0.7f);
     public bool IsSelect { 
         get => isSelect;
         set
@@ -21,14 +21,13 @@ public class UI_Options_Item : MonoBehaviour,IPointerEnterHandler,IPointerExitHa
             isSelect = value;
             if (isSelect)
             {
-                image.color = blackColor;
-                text.color = Color.white;
+                image.color = selectColor;
+                text.color = selectColor;
             }
             else
             {
                 image.color = whiteColor;
-                text.color = Color.black;
-
+                text.color = whiteColor;
             }
         }
     }

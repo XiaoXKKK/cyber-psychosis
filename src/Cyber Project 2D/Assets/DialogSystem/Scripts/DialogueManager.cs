@@ -13,7 +13,6 @@ public class DialogueManager : MonoBehaviour
 
 
     public GameObject canvas;
-    public int AItimes = 3;
     
     private void Awake()
     {

@@ -14,6 +14,7 @@ using UnityEngine.UI;
 
 public class UI_AIDialog : MonoBehaviour
 {
+    public static UI_AIDialog Instance;
     public GameObject npcController;
 
     private ProcessStartInfo startInfo;
@@ -23,9 +24,11 @@ public class UI_AIDialog : MonoBehaviour
     private IPEndPoint remoteEP;
 
     public InputField input;
+    public Text EP;
 
     void Awake()
     {
+        Instance = this;
         UnityEngine.Debug.Log(System.Environment.CurrentDirectory);
         // input = transform.Find("DialogCanvas/Input/InputField").GetComponent<InputField>();
 

@@ -13,6 +13,9 @@ public class NPC_Aelia : NPC_Base
 
     public override void UpdateQueue()
     {
+        // ²âÊÔDemo
+        //if (Favorability >= 50 && !thresholdsTriggered[1])
+        //    Enqueue(1);
         if (Favorability > 70 && !thresholdsTriggered[0])
             Enqueue(0);
     }
