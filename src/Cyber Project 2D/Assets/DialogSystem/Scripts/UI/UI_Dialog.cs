@@ -24,9 +24,23 @@ public class UI_Dialog : MonoBehaviour
     
     private UI_Click ui_Click;
     public DialogConf aiend;
+    public Character player;
+
+    private void OnEnable()
+    {
+        player.Freeze();
+        player.MovementState.ChangeState(CharacterStates.MovementStates.Idle);
+    }
+
+    private void OnDisable()
+    {
+        player.UnFreeze();
+    }
+
     private void Awake()
     {
         Instance = this;
+        player = GameObject.FindWithTag("Player").GetComponent<Character>();
         head = transform.Find("Main/Head").GetComponent<Image>();
         nameText = transform.Find("Main/Name").GetComponent<Text>();
         ui_Click = transform.Find("Main/Scroll View").GetComponent<UI_Click>();
