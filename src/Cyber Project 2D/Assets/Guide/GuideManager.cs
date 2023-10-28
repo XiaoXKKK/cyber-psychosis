@@ -116,8 +116,7 @@ public class GuideManager : MonoBehaviour
         if (state == 6)
         {
             //触发对话后
-            NarratorSystem.Instance.SendActionInfo("你感觉好累，回去睡觉吧。");
-            NarratorSystem.Instance.ShowInfo(2);
+            NarratorSystem.Instance.SendDialogueInfo("你感觉好累，回去睡觉吧。");
 
             //解除
             toDownCorridorDoor.SetActive(true);
