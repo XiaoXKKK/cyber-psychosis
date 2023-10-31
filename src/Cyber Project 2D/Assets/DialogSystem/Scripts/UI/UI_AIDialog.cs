@@ -50,7 +50,7 @@ public class UI_AIDialog : MonoBehaviour
 #if PYTEST
         StartSubProcess();
 #else
-        StartSubProcessFromExe();
+        //StartSubProcessFromExe();
 #endif
     }
 

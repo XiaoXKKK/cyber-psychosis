@@ -15,6 +15,7 @@ namespace MoreMountains.InventoryEngine
 	/// </summary>
 	public class InventorySoundPlayer : MonoBehaviour, MMEventListener<MMInventoryEvent>
 	{
+		[Serializable]
 		public enum Modes { Direct, Event }
 
 		[Header("Settings")] 
@@ -155,6 +156,7 @@ namespace MoreMountains.InventoryEngine
 			{
 				if (Mode == Modes.Direct)
 				{
+					// MMSoundManager.Instance.PlaySound(soundFx, MMSoundManager.MMSoundManagerTracks.Sfx, new Vector3(0, 0, 0), volume: volume);
 					_audioSource.PlayOneShot(soundFx, volume);
 				}
 				else
