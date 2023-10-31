@@ -31,12 +31,7 @@ MonoBehaviour:
   - NPCConf: {fileID: 11400000, guid: e61d2bf30bb3ed547829ee7e25eeb2a0, type: 2}
     NPCHead: {fileID: 21300000, guid: c6efc451675253f41b44c9aff31f4c46, type: 3}
     NPCContent: "\u60F3\u8981\u559D\u5496\u5561\u5417...\uFF08\u81EA\u8A00\u81EA\u8BED\uFF09"
-    events: []
-    selects: []
-  - NPCConf: {fileID: 11400000, guid: e61d2bf30bb3ed547829ee7e25eeb2a0, type: 2}
-    NPCHead: {fileID: 21300000, guid: c6efc451675253f41b44c9aff31f4c46, type: 3}
-    NPCContent: "\u60F3\u8981\u559D\u5496\u5561\u5417...\uFF08\u81EA\u8A00\u81EA\u8BED\uFF09"
     events:
-    - DialogEvent: 1
+    - DialogEvent: 0
       Args: 
     selects: []
