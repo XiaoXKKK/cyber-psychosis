@@ -17,7 +17,8 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        inventory = GameObject.Find("InventoryCanvas").GetComponent<InventoryInputManager>();
+        var InventoryCanvas = GameObject.Find("InventoryCanvas");
+        inventory = InventoryCanvas ? InventoryCanvas.GetComponent<InventoryInputManager>() : null;
         dialogConfs = Resources.LoadAll<DialogConf>("Conf");
     }
     public void StartDialog(DialogConf conf)
@@ -29,6 +30,7 @@ public class DialogueManager : MonoBehaviour
     public void ChangeInput(bool flag)
     {
         InputManager.Instance.InputDetectionActive = flag;
+        if (inventory)
         if (flag)
         {
             inventory.ToggleInventoryKey = KeyCode.I;
@@ -41,20 +43,5 @@ public class DialogueManager : MonoBehaviour
     public DialogConf GetDialogConf(int index)
     {
         return dialogConfs[index];
-    }
-    /// <summary>
-    /// 摄像机效果-闪烁
-    /// </summary>
-    public void ScreenEF(float delay)
-    {
-        StartCoroutine(DoScreenEF(delay));
-
-    }
-
-    private IEnumerator DoScreenEF(float delay)
-    {
-        GameObject.Find("Canvas/BG").GetComponent<Image>().color = Color.red;
-        yield return new WaitForSeconds(delay);
-        GameObject.Find("Canvas/BG").GetComponent<Image>().color = Color.white;
     }
 }

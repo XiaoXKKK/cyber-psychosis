@@ -40,8 +40,8 @@ public enum DialogEventEnum
     AIDialog,
     [LabelText("更新好感度")]
     UpdateScore,
-    [LabelText("屏幕效果")]
-    ScreenEF
+    [LabelText("更换底图")]
+    ChangeImage
 }
 [Serializable]
 public class DialogEventModel

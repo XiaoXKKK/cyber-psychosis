@@ -14,33 +14,41 @@ public class UI_Dialog : MonoBehaviour
     private Text mainText;
     private RectTransform content;
     private Transform Options;
+    private Transform Main;
     private GameObject prefab_OptionItem;
     public GameObject input;
     public GameObject items;
+    private Image BG;
 
     private DialogConf currconf;
     private int currindex;
     public NPC_Base Currnpc { set; get; }
-    
+
     private UI_Click ui_Click;
     public DialogConf aiend;
     public Character player;
 
     private void OnEnable()
     {
-        player.Freeze();
-        player.MovementState.ChangeState(CharacterStates.MovementStates.Idle);
+        if (player)
+        {
+            player.Freeze();
+            player.MovementState.ChangeState(CharacterStates.MovementStates.Idle);
+        }
     }
 
     private void OnDisable()
     {
-        player.UnFreeze();
+        if (player)
+            player.UnFreeze();
     }
 
     private void Awake()
     {
         Instance = this;
-        player = GameObject.FindWithTag("Player").GetComponent<Character>();
+        var playergb = GameObject.FindWithTag("Player");
+        player = playergb ? playergb.GetComponent<Character>() : null;
+        BG = transform.Find("Image").GetComponent<Image>();
         head = transform.Find("Main/Head").GetComponent<Image>();
         nameText = transform.Find("Main/Name").GetComponent<Text>();
         ui_Click = transform.Find("Main/Scroll View").GetComponent<UI_Click>();
@@ -49,10 +57,11 @@ public class UI_Dialog : MonoBehaviour
         mainText = transform.Find("Main/Scroll View/Viewport/Content/MainText").GetComponent<Text>();
         content = transform.Find("Main/Scroll View/Viewport/Content").GetComponent<RectTransform>();
         Options = transform.Find("Options");
+        Main = transform.Find("Main");
         prefab_OptionItem = Resources.Load<GameObject>("Options_Item");
         aiend = Resources.Load<DialogConf>("AIEnd");
     }
-    
+
     public void SaySth(string txt)
     {
         if (coroutine != null)
@@ -70,22 +79,22 @@ public class UI_Dialog : MonoBehaviour
     private void StartDialog(DialogConf conf, int index)
     {
         DialogModel model = conf.dialogs[index];
-        
+
         // 修改图像和名字
         head.sprite = model.NPCConf.Head;
         nameText.text = model.NPCConf.Name;
         mainText.text = "";
         // 删除已有的玩家选项
         Transform[] items = Options.GetComponentsInChildren<Transform>();
-        for(int i = 1; i < items.Length; i++)
+        for (int i = 1; i < items.Length; i++)
         {
             Destroy(items[i].gameObject);
         }
         // 说话
-        if(coroutine != null)
+        if (coroutine != null)
             StopCoroutine(coroutine);
         coroutine = StartCoroutine(DoMainTextEF(model.NPCContent));
-        
+
         if (model.selects.Count == 0)
         {
             ui_Click.enabled = true;
@@ -139,13 +148,45 @@ public class UI_Dialog : MonoBehaviour
             case DialogEventEnum.UpdateScore:
                 UpdateScore(int.Parse(args));
                 break;
-            case DialogEventEnum.ScreenEF:
-                DialogueManager.Instance.ScreenEF(float.Parse(args));
+            case DialogEventEnum.ChangeImage:
+                StartCoroutine(ChangeImageEvent(Resources.Load<Sprite>("CGs/" + args), 0.5f));
                 break;
         }
     }
 
+    private IEnumerator ChangeImageEvent(Sprite newSprite, float fadeDuration)
+    {
+        Options.gameObject.SetActive(false);
+        Main.gameObject.SetActive(false);
+        // 渐变到黑色
+        float elapsedTime = 0.0f;
+        while (elapsedTime < fadeDuration)
+        {
+            float t = elapsedTime / fadeDuration;
+            Color newColor = Color.Lerp(Color.white, Color.black, t);
+            BG.color = newColor;
 
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // 设置新图片
+        BG.sprite = newSprite;
+        Options.gameObject.SetActive(true);
+        Main.gameObject.SetActive(true);
+        
+        // 渐变到初始颜色
+        elapsedTime = 0.0f;
+        while (elapsedTime < fadeDuration)
+        {
+            float t = elapsedTime / fadeDuration;
+            Color newColor = Color.Lerp(Color.black, Color.white, t);
+            BG.color = newColor;
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
     public void UpdateScore(int num)
     {
         Debug.Log(nameText.text + num.ToString());
@@ -170,13 +211,16 @@ public class UI_Dialog : MonoBehaviour
         currindex += 1;
         StartDialog(currconf, currindex);
     }
-
+    public static DialogEndEvent dialogEnd = new DialogEndEvent();
+    public class DialogEndEvent: UnityEvent { }
     public void ExitDialogEvent()
     {
         ui_Click.enabled = false;
         gameObject.SetActive(false);
         DialogueManager.Instance.ChangeInput(true);
-        NarratorSystem.Instance.ShowInfo(3);
+        if (NarratorSystem.Instance)
+            NarratorSystem.Instance.ShowInfo(3);
+        dialogEnd.Invoke();
     }
 
     private void JumpDialogEvent(int index)
