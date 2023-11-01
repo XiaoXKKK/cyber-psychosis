@@ -75,6 +75,7 @@ namespace MoreMountains.CorgiEngine
                     NarratorSystem.Instance.SendInteractionInfo("你装了一杯可乐");
                     NarratorSystem.Instance.ShowInfo(4);
                     GameObject.Find("MainInventory").GetComponent<Inventory>().RemoveItemByID(item.ItemID, 1);
+                    GameObject.Find("GetWater").GetComponent<MMF_Player>().PlayFeedbacks();
                     return true;
                 }
             }
@@ -82,13 +83,13 @@ namespace MoreMountains.CorgiEngine
             {      
                 if (item != null && item.ItemID == "Cola")
                 {
-                    NarratorSystem.Instance.SendInteractionInfo("你没有空杯子，无法拾取可乐。");
+                    NarratorSystem.Instance.SendInteractionInfo("你没有空杯子，无法接可乐。");
                     NarratorSystem.Instance.ShowInfo(4);
                     GameObject.Find("MainInventory").GetComponent<Inventory>().RemoveItemByID(item.ItemID,1);
                     return false;
                 }
             }
-            NarratorSystem.Instance.SendInteractionInfo("你没有空杯子，无法拾取可乐。");
+            NarratorSystem.Instance.SendInteractionInfo("你没有空杯子，无法接可乐。");
             NarratorSystem.Instance.ShowInfo(4);
             return false;           
         }

@@ -4,9 +4,12 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using MoreMountains.InventoryEngine;
+using MoreMountains.Feedbacks;
 
 public class SafeController : MonoBehaviour
 {
+    public MMFeedbacks openfeedback;
+    public Button button;
     public Text inputText; // 指定在Inspector中
     private string correctPassword = "12345"; // 你可以设置为任意五位数密码
     private string currentPlayerInput = "";
@@ -67,7 +70,10 @@ public class SafeController : MonoBehaviour
                 item.GetComponent<InventoryPickableItem>().Pick("MainInventory","Player1");
                 Debug.Log("Safe Opened!");
             }
-        } 
+        }
+        openfeedback.PlayFeedbacks();
+        PanelFadeOut();
+        button.onClick.RemoveAllListeners();
         // 这里执行打开保险柜的操作
 
         // 例如: YourMethodToOpenTheSafe();
