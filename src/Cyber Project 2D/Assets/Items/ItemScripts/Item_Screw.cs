@@ -31,7 +31,7 @@ namespace MoreMountains.CorgiEngine
 
             if (ItemSystem.Instance.WhoIsOpeningInventory() == "Mystique")
             {
-                NPC_Mystique.Instance.Buff("Screw");
+                NPC_Mystique.Instance.ItemJudge("Screw");
                 return true;
             }
             else if(ItemSystem.Instance.WhoIsOpeningInventory() == "Player")

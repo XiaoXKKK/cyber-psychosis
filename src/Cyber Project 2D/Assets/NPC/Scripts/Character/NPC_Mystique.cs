@@ -20,7 +20,7 @@ public class NPC_Mystique : NPC_Base
     {
         if (itemName == "Sedative")
         {
-            NarratorSystem.Instance.BroadcastMessage("你对迷梦使用了镇静剂，她的心情变得很好");
+            NarratorSystem.Instance.ShowInfo("你对迷梦使用了镇静剂，她的心情变得很好");
             isGoodCondition = true;
             return;
         }

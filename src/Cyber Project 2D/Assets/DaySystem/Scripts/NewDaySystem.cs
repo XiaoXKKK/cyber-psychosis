@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public class NewDaySystem : MonoBehaviour
 {
-    public int dayCount = 0;
+    public int dayCount = 10;
     private static readonly int maxtimes = 5;
     private static int aitimes = maxtimes;
     public int AItimes
@@ -44,7 +44,7 @@ public class NewDaySystem : MonoBehaviour
     }
     private void Update()
     {
-        dayText.text = "第" + dayCount.ToString() + "天";
+        dayText.text = "还剩" + dayCount.ToString() + "天";
         
     }
     public void StartFadeOut()
@@ -98,13 +98,16 @@ public class NewDaySystem : MonoBehaviour
     void FadeIn()
     {
         AItimes = maxtimes;
-        dayCount++;
+        dayCount--;
         MMFadeInEvent.Trigger(2f, tweenType, 0);
         Invoke("StartFadeOut", 4f);
     }
 
     void CanMove()
     {
+        NarratorSystem.Instance.SendActionInfo("时间不多了，得赶紧逃离这里。");
+        NarratorSystem.Instance.SendActionInfo("在医院转转看看有没有线索吧。");
+        NarratorSystem.Instance.ShowInfo(2);
         GameObject.FindWithTag("Player").GetComponent<CharacterHorizontalMovement>().AbilityPermitted = true;
     }
 #region 单例模式
