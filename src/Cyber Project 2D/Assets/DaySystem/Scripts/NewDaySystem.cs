@@ -29,7 +29,7 @@ public class NewDaySystem : MonoBehaviour
     GameObject UP;
     GameObject DOWN;
 
-    float virtualCameraSize=5f;
+    float virtualCameraSize=6f;
 
     GameObject CupFetch;
     GameObject SedtiveFetch;
@@ -50,7 +50,7 @@ public class NewDaySystem : MonoBehaviour
     public void StartFadeOut()
     {    
         GameObject.FindWithTag("Player").GetComponent<CharacterHorizontalMovement>().AbilityPermitted = false;
-        virtualCamera.m_Lens.OrthographicSize = 5f;
+        virtualCamera.m_Lens.OrthographicSize = 6f;
         FadeOut();
         Invoke("RespwanItems", 0.1f);
     }
@@ -87,7 +87,7 @@ public class NewDaySystem : MonoBehaviour
     void ToCinema()
     {
         float duration = 2f; // 变化所需的时间，例如2秒
-        float targetValue = 5f; // 目标值
+        float targetValue = 6f; // 目标值
         UP.transform.DOLocalMoveY(250, duration);
         DOWN.transform.DOLocalMoveY(-250, duration);
         DOTween.To(() => virtualCameraSize, x => virtualCameraSize = x, targetValue, duration).OnUpdate(() => {
