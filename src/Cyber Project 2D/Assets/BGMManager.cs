@@ -14,8 +14,8 @@ public class BGMManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
     private void Start()
-    {
-        MMSoundManager.Instance.PlaySound(source, MMSoundManager.MMSoundManagerTracks.Music, new Vector3(0, 0, 0), true, persistent: true);
+    { 
+        MMSoundManager.Instance.PlaySound(source, MMSoundManager.MMSoundManagerTracks.Music, new Vector3(0, 0, 0), true, persistent: true, ID: 1);
         MMSoundManager.Instance.SetTrackVolume(MMSoundManager.MMSoundManagerTracks.Music, 0.25f);
     }
 }
