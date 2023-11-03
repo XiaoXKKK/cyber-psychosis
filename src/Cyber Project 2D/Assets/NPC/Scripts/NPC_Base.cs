@@ -49,7 +49,7 @@ public class NPC_Base : MonoBehaviour
         thresholdsTriggered[i] = true;
     }
 
-    public void StartDialog()
+    public virtual void StartDialog()
     {
         UpdateQueue();
         if (confs.Count != 0)

@@ -2,7 +2,7 @@ import openai
 import time
 import numpy as np
 
-openai.api_key = 'sk-2HmK3ZVkklLUOvKE8bpceLou1OstAmRm3P5cf43FkBoXbfcp'
+openai.api_key = 'sk-GmXHoBkkmnhpq9vT8pl6z8zGx1t1nICKU1dx5Bw3CL05lGpM'
 openai.api_base = "https://api.chatanywhere.com.cn/v1"
 
 def use_chatgpt(prompt):

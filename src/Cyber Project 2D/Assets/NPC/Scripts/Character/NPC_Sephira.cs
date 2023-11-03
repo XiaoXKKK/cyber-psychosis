@@ -12,6 +12,14 @@ public class NPC_Sephira : NPC_Base
     {
         npcname = "Sephira";
     }
+
+    public override void StartDialog()
+    {
+        if (Favorability > 90)
+            CGManager.Instance.LoadNewScene(0);
+        else
+            base.StartDialog();
+    }
     public override void UpdateQueue()
     {
         if (getmessage && !thresholdsTriggered[0])
@@ -34,6 +42,7 @@ public class NPC_Sephira : NPC_Base
         }
         else if(itemName=="ProofOfIllicitMoney")
         {
+            Favorability = 100;
             NarratorSystem.Instance.SendDialogueInfo("监视者得到了医生贪污的证据，好感度达到100");
         }
         else

@@ -31,7 +31,11 @@ namespace MoreMountains.CorgiEngine
 
             if (ItemSystem.Instance.WhoIsOpeningInventory() == "DestroyedRobot")
             {
-                NarratorSystem.Instance.ShowInfo("解锁了特殊结局。");
+                if (NPC_Sephira.Instance.Favorability>90 &&  NPC_Aelia.Instance.Favorability >= 70 && NPC_Evelyn.Instance.Favorability >= 70 && NPC_Mystique.Instance.Favorability >= 70 && NPC_Sherylina.Instance.Favorability >= 70 && NPC_Vidora.Instance.Favorability >= 70)
+                {
+                    CGManager.Instance.LoadNewScene(4);
+                }
+                // NarratorSystem.Instance.ShowInfo("解锁了特殊结局。");
                 return true;
             }
             else
