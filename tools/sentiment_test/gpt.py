@@ -1,16 +1,37 @@
 import openai
 import time
 import numpy as np
+import requests
+import json
+openai.api_key = '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'
 
-openai.api_key = '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'
+def request_gpt_with_timeout(prompt = "你好"):
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {openai.api_key}',
+    }
+
+    data = {
+        "model": "gpt-3.5-turbo",
+        "messages": [
+            {"role": "system", "content": "你是一个角色扮演专家。下面是一个游戏场景的世界观和角色描述，你要记住下面的信息进行角色扮演任务。"},
+            {"role": "user","content": prompt}
+        ],
+    }
+
+    try:
+        response = requests.post('https://api.openai.com/v1/chat/completions', headers=headers, data=json.dumps(data), timeout = 10)
+        return response.json()["choices"][0]["message"]["content"]
+    except requests.exceptions.Timeout:
+        return "我现在有其他事要忙"
 
 def use_chatgpt(prompt):
     # 调用 ChatGPT 接口，prompt，返回模型输出
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "user",
-            "content": prompt}
+            {"role": "system", "content": "你是一个角色扮演专家。下面是一个游戏场景的世界观和角色描述，你要记住下面的信息进行角色扮演任务。"},
+            {"role": "user","content": prompt}
         ]
     )
     response = completion.choices[0].message["content"]
@@ -156,7 +177,7 @@ class Agent:
         print(chat_prompt)
 
         # 获取gpt输出
-        response = use_chatgpt_with_retry(chat_prompt)
+        response = request_gpt_with_timeout(chat_prompt)
         history.append(f"主角：{input_content}")
         history.append(response)
 
