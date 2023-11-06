@@ -11,12 +11,13 @@ public class SafeController : MonoBehaviour
     public MMFeedbacks openfeedback;
     public Button button;
     public Text inputText; // 指定在Inspector中
-    private string correctPassword = "12345"; // 你可以设置为任意五位数密码
+    private string correctPassword = "33214"; // 你可以设置为任意五位数密码
     private string currentPlayerInput = "";
     public float fadeTime = 0.5f;
     CanvasGroup canvasGroup;
     RectTransform rectTransform;
     GameObject player;
+    bool neverOpen = false;
     private void Start()
     {
         canvasGroup = GameObject.Find("SafeCanvas").GetComponent<CanvasGroup>();
@@ -52,6 +53,7 @@ public class SafeController : MonoBehaviour
         if (currentPlayerInput == correctPassword)
         {
             OpenSafe();
+            neverOpen = true;
         }
         else
         {
@@ -81,11 +83,14 @@ public class SafeController : MonoBehaviour
 
     public void PanelFadeIn()
     {
-        canvasGroup.alpha = 0;
-        GameObject.FindWithTag("Player").GetComponent<CharacterHorizontalMovement>().AbilityPermitted = false;
-        rectTransform.transform.localPosition = new Vector3(0, -1000f, 0);
-        rectTransform.DOAnchorPos(new Vector2(0, 0), fadeTime, false).SetEase(Ease.OutExpo);
-        canvasGroup.DOFade(1, fadeTime);
+        if (neverOpen)
+        {
+            canvasGroup.alpha = 0;
+            GameObject.FindWithTag("Player").GetComponent<CharacterHorizontalMovement>().AbilityPermitted = false;
+            rectTransform.transform.localPosition = new Vector3(0, -1000f, 0);
+            rectTransform.DOAnchorPos(new Vector2(0, 0), fadeTime, false).SetEase(Ease.OutExpo);
+            canvasGroup.DOFade(1, fadeTime);
+        }
     }
     public void PanelFadeOut()
     {
