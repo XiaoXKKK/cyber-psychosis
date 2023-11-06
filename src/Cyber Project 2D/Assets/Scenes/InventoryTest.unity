@@ -35824,6 +35824,7 @@ MonoBehaviour:
   npcController: {fileID: 0}
   input: {fileID: 450542850}
   EP: {fileID: 925826851}
+  settings: {fileID: 11400000, guid: a8c0924b9f152e444b94dd011810fbe1, type: 2}
 --- !u!1001 &1467007702
 PrefabInstance:
   m_ObjectHideFlags: 0

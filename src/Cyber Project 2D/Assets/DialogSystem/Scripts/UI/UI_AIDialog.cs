@@ -1,4 +1,4 @@
-
+#define PYTEST
 
 using System.Collections;
 using System.Collections.Generic;
@@ -25,6 +25,8 @@ public class UI_AIDialog : MonoBehaviour
 
     public InputField input;
     public Text EP;
+
+    public APISettings settings;
 
     void Awake()
     {
@@ -113,7 +115,8 @@ public class UI_AIDialog : MonoBehaviour
         string pythonPath = currdir + "/" + "Python";
         string fullPath = pythonPath + "/" + fileName;
         // 设置命令行参数
-        string command = "/c python \"" + fullPath + "\"";
+        string args = " --base " + settings.api_base + " --key " + settings.api_key;
+        string command = "/c python \"" + fullPath + "\"" + args;
 
         // 创建ProcessStartInfo对象
         startInfo = new ProcessStartInfo
@@ -140,6 +143,7 @@ public class UI_AIDialog : MonoBehaviour
         // 拼接exe的完整路径
         string pythonPath = currdir + "/" + "Python";
 
+        string args = " --base " + settings.api_base + " --key " + settings.api_key;
         // 创建ProcessStartInfo对象
         startInfo = new ProcessStartInfo
         {
@@ -147,6 +151,8 @@ public class UI_AIDialog : MonoBehaviour
             FileName = pythonPath + "/" + "gpt_test.exe",
             // 设置工作目录
             WorkingDirectory = pythonPath,
+            // 设置参数
+            Arguments = args,
             // 因为嵌入Unity中后台使用，所以设置不显示窗口
             CreateNoWindow = true,
             // 这里需要设定为false（使用CreateProcess创建进程）
