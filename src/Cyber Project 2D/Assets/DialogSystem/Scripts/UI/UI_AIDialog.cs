@@ -1,5 +1,3 @@
-#define PYTEST
-
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -27,13 +25,14 @@ public class UI_AIDialog : MonoBehaviour
     public Text EP;
 
     public APISettings settings;
-
+    private string args;
     void Awake()
     {
         Instance = this;
         UnityEngine.Debug.Log(System.Environment.CurrentDirectory);
         // input = transform.Find("DialogCanvas/Input/InputField").GetComponent<InputField>();
-
+        args = " --base " + (PlayerPrefs.HasKey("api_base") ? PlayerPrefs.GetString("api_base") : settings.api_base) + " --key " + (PlayerPrefs.HasKey("api_key") ? PlayerPrefs.GetString("api_key") : settings.api_key);
+        UnityEngine.Debug.Log(args);
         Kill_All_Python_Process();
 
         // 创建UDP通信的Client
@@ -115,7 +114,7 @@ public class UI_AIDialog : MonoBehaviour
         string pythonPath = currdir + "/" + "Python";
         string fullPath = pythonPath + "/" + fileName;
         // 设置命令行参数
-        string args = " --base " + settings.api_base + " --key " + settings.api_key;
+        
         string command = "/c python \"" + fullPath + "\"" + args;
 
         // 创建ProcessStartInfo对象
@@ -143,7 +142,6 @@ public class UI_AIDialog : MonoBehaviour
         // 拼接exe的完整路径
         string pythonPath = currdir + "/" + "Python";
 
-        string args = " --base " + settings.api_base + " --key " + settings.api_key;
         // 创建ProcessStartInfo对象
         startInfo = new ProcessStartInfo
         {
