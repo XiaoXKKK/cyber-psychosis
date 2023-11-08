@@ -17,7 +17,7 @@ public class SafeController : MonoBehaviour
     CanvasGroup canvasGroup;
     RectTransform rectTransform;
     GameObject player;
-    bool neverOpen = false;
+    bool neverOpen = true;
     private void Start()
     {
         canvasGroup = GameObject.Find("SafeCanvas").GetComponent<CanvasGroup>();
@@ -53,7 +53,7 @@ public class SafeController : MonoBehaviour
         if (currentPlayerInput == correctPassword)
         {
             OpenSafe();
-            neverOpen = true;
+            neverOpen = false;
         }
         else
         {
