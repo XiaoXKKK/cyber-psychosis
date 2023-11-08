@@ -34,8 +34,8 @@ MonoBehaviour:
     DisplayUnequipButton: 1
   Quantity: 1
   ItemName: "\u8D43\u6B3E\u6536\u636E"
-  ShortDescription: "\u533B\u751F\u63A5\u53D7\u8D3F\u8D42\u7684\u6536\u636E"
-  Description: "\u6216\u8BB8\u53EF\u4EE5\u5411\u8C01\u68C0\u4E3E\u533B\u751F\u7684\u6076\u884C\u3002"
+  ShortDescription: "Dr.\u8587\u591A\u62C9\u63A5\u53D7\u8D3F\u8D42\u7684\u8BC1\u636E"
+  Description: "\u53EF\u4EE5\u5411\u585E\u5F17\u62C9\u68C0\u4E3E\u533B\u751F\u7684\u6076\u884C\u3002"
   Icon: {fileID: 21300000, guid: 66cf5149b2852314c924691f407130ee, type: 3}
   Prefab: {fileID: 0}
   ForcePrefabDropQuantity: 0

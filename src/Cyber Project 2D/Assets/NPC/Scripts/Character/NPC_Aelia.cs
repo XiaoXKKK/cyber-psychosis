@@ -30,7 +30,7 @@ public class NPC_Aelia : NPC_Base
 
     public void Buff(string itemName)
     {
-        NarratorSystem.Instance.SendDialogueInfo("Aelia现在并不渴。");
+        NarratorSystem.Instance.SendDialogueInfo("艾莉现在并不渴。");
         NarratorSystem.Instance.ShowInfo(3);
     }
 

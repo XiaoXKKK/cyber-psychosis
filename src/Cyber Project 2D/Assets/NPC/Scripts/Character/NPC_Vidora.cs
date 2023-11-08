@@ -24,7 +24,7 @@ public class NPC_Vidora : NPC_Base
     }
     public void Buff(string itemName)
     {
-        NarratorSystem.Instance.ShowInfo("医生并不渴。");
+        NarratorSystem.Instance.ShowInfo("Dr.薇多拉并不渴。");
     }
 
     #region 单例模式

@@ -30,7 +30,7 @@ public class NPC_Sephira : NPC_Base
     }
     public void Buff(string itemName)
     {
-        NarratorSystem.Instance.ShowInfo("监视者并不渴。");
+        NarratorSystem.Instance.ShowInfo("塞弗拉并不渴。");
     }
 
     public void ItemJudge(string itemName)
@@ -38,16 +38,16 @@ public class NPC_Sephira : NPC_Base
         if (itemName == "Money")
         {
             Favorability += 20;
-            NarratorSystem.Instance.SendDialogueInfo("监视者被贿赂了，好感度增加20");
+            NarratorSystem.Instance.SendDialogueInfo("塞弗拉被贿赂了，好感度增加20");
         }
         else if(itemName=="ProofOfIllicitMoney")
         {
             Favorability = 100;
-            NarratorSystem.Instance.SendDialogueInfo("监视者得到了医生贪污的证据，好感度达到100");
+            NarratorSystem.Instance.SendDialogueInfo("塞弗拉得到了医生贪污的证据，好感度达到100");
         }
         else
         {
-            NarratorSystem.Instance.SendDialogueInfo("监视者并不需要这个");
+            NarratorSystem.Instance.SendDialogueInfo("塞弗拉并不需要这个");
         }
     }
     #region 单例模式
