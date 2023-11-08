@@ -7,9 +7,10 @@ def use_chatgpt(prompt):
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "user",
-            "content": prompt}
-        ]
+            {"role": "system", "content": "你是一个角色扮演专家。下面是一个游戏场景的世界观和角色描述，你要记住下面的信息进行角色扮演任务。"},
+            {"role": "user", "content": prompt}
+        ],
+        timeout = 3
     )
     response = completion.choices[0].message["content"]
     print(response)
