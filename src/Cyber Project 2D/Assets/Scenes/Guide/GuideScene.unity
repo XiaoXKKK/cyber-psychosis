@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 71332296}
   - component: {fileID: 71332295}
   - component: {fileID: 71332294}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Cola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +733,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 0.6392157}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.6392157}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
     m_SelectedColor: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}
@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 76876927}
   - component: {fileID: 76876926}
   - component: {fileID: 76876925}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InteractionList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -923,7 +923,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 8040196610978649111}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -3294,7 +3294,7 @@ GameObject:
   - component: {fileID: 323795639}
   - component: {fileID: 323795638}
   - component: {fileID: 323795637}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Pick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4019,7 +4019,7 @@ GameObject:
   - component: {fileID: 412292349}
   - component: {fileID: 412292348}
   - component: {fileID: 412292347}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Talk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5503,7 +5503,7 @@ GameObject:
   - component: {fileID: 577320669}
   - component: {fileID: 577320668}
   - component: {fileID: 577320667}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Coffee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5551,7 +5551,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 0.6392157}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.6392157}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
     m_SelectedColor: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}
@@ -6753,7 +6753,7 @@ GameObject:
   - component: {fileID: 698022438}
   - component: {fileID: 698022437}
   - component: {fileID: 698022436}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Use
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7196,7 +7196,7 @@ GameObject:
   - component: {fileID: 768535907}
   - component: {fileID: 768535906}
   - component: {fileID: 768535905}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7244,7 +7244,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 0.6392157}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.6392157}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
     m_SelectedColor: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}
@@ -9453,7 +9453,7 @@ GameObject:
   - component: {fileID: 1104583430}
   - component: {fileID: 1104583429}
   - component: {fileID: 1104583428}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InteractionList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9480,7 +9480,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 3}
+  m_AnchoredPosition: {x: -2, y: 3}
   m_SizeDelta: {x: 2000, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1104583428
@@ -23166,7 +23166,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 5
+    OrthographicSize: 7.5
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -23770,6 +23770,75 @@ MonoBehaviour:
   ActivableMoreThanOnce: 1
   InactiveTime: 2
   Dialogue: []
+--- !u!1001 &4020747285702811553
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4020747284624155130, guid: 1f946ec6ee6dd234aaae102ce59c16f3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020747284624155130, guid: 1f946ec6ee6dd234aaae102ce59c16f3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -57.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020747284624155130, guid: 1f946ec6ee6dd234aaae102ce59c16f3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 42.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020747284624155130, guid: 1f946ec6ee6dd234aaae102ce59c16f3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020747284624155130, guid: 1f946ec6ee6dd234aaae102ce59c16f3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020747284624155130, guid: 1f946ec6ee6dd234aaae102ce59c16f3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020747284624155130, guid: 1f946ec6ee6dd234aaae102ce59c16f3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020747284624155130, guid: 1f946ec6ee6dd234aaae102ce59c16f3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020747284624155130, guid: 1f946ec6ee6dd234aaae102ce59c16f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020747284624155130, guid: 1f946ec6ee6dd234aaae102ce59c16f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020747284624155130, guid: 1f946ec6ee6dd234aaae102ce59c16f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020747284624155131, guid: 1f946ec6ee6dd234aaae102ce59c16f3,
+        type: 3}
+      propertyPath: m_Name
+      value: SpaceUI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1f946ec6ee6dd234aaae102ce59c16f3, type: 3}
 --- !u!224 &4246967046715402163
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24572,7 +24641,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

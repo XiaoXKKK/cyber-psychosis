@@ -34,5 +34,5 @@ MonoBehaviour:
     NPCContent: "\u54E6\uFF0C\u6709\u610F\u601D\uFF0C\u8C22\u8C22\u4F60\u7684\u60C5\u62A5\uFF01"
     events:
     - DialogEvent: 1
-      Args: 
+      Args: SafeBox
     selects: []

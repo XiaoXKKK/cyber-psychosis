@@ -45,6 +45,10 @@ public class NewDaySystem : MonoBehaviour
     private void Update()
     {
         dayText.text = "»¹Ê£" + dayCount.ToString() + "Ìì";
+        if (dayCount < 0)
+        {
+            dayCount = 0;
+        }
         
     }
     public void StartFadeOut()

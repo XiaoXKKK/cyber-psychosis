@@ -18,6 +18,7 @@ public class SafeController : MonoBehaviour
     RectTransform rectTransform;
     GameObject player;
     bool neverOpen = true;
+    public static bool getKey = false;
     private void Start()
     {
         canvasGroup = GameObject.Find("SafeCanvas").GetComponent<CanvasGroup>();
@@ -83,6 +84,10 @@ public class SafeController : MonoBehaviour
 
     public void PanelFadeIn()
     {
+        if(getKey)
+        {
+            NarratorSystem.Instance.ShowInfo("33214，如果我没记错的话密码是这个。");
+        }
         if (neverOpen)
         {
             canvasGroup.alpha = 0;

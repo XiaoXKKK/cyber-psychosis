@@ -133,6 +133,8 @@ public class UI_Dialog : MonoBehaviour
                         NPC_Vidora.Instance.getmessage = true;
                     else if (args == "Sephira")
                         NPC_Sephira.Instance.getmessage = true;
+                    else if(args == "SafeBox")
+                        SafeController.getKey = true;
                     else
                     {
                         items.transform.Find(args).gameObject.SetActive(true);

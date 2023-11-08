@@ -24,7 +24,7 @@ public class NPC_Evelyn : NPC_Base
         if (itemName == "Coffee")
         {
             Favorability += 10;
-            NarratorSystem.Instance.SendDialogueInfo("Evelyn喝了可乐，好感度增加了10");
+            NarratorSystem.Instance.SendDialogueInfo("Evelyn喝了咖啡，好感度增加了10");
             NarratorSystem.Instance.ShowInfo(3);
         }
         else if (itemName == "Sedative")
