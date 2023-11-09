@@ -103,6 +103,10 @@ public class NewDaySystem : MonoBehaviour
     {
         AItimes = maxtimes;
         dayCount--;
+        if(dayCount == 0)
+        {
+            CGManager.Instance.LoadNewScene(2);
+        }
         MMFadeInEvent.Trigger(2f, tweenType, 0);
         Invoke("StartFadeOut", 4f);
     }

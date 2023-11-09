@@ -16,7 +16,10 @@ public class CGManager : MonoBehaviour
     public void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
         SceneManager.sceneUnloaded += SceneUnloaded;
         onSceneLoaded.AddListener(EndCG);
     }
