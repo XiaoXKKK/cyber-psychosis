@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using MoreMountains.CorgiEngine;
 
 public class InteractionSystem : MonoBehaviour
 {
@@ -23,12 +24,14 @@ public class InteractionSystem : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             canTrigger = true;
-            GameObject.Find("SpaceUI").GetComponent<Transform>().position=transform.position+new Vector3(0,4,0);
+            GameObject.Find("SpaceUI").GetComponent<Transform>().position = transform.position + new Vector3(0, 4, 0);
             GameObject.Find("SpaceCanvas").GetComponent<CanvasGroup>().DOFade(1, 0.15f);
         }
     }
     private void OnTriggerStay2D(Collider2D other)
     {
+        if (other.gameObject.tag == "Player")
+            GameObject.Find("Player").GetComponent<CharacterButtonActivation>().enabled = false;
         if (other.gameObject.tag == "Player" && Input.GetKey(KeyCode.Space) && canTrigger)
         {
             InteractionList.SetActive(true);
@@ -41,7 +44,8 @@ public class InteractionSystem : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if(!canTrigger)
+            GameObject.Find("Player").GetComponent<CharacterButtonActivation>().enabled = true;
+            if (!canTrigger)
                 StartCoroutine(FadeOutCoroutine());
             GameObject.Find("SpaceCanvas").GetComponent<CanvasGroup>().DOFade(0, 0.1f);
         }

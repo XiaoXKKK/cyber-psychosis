@@ -4962,8 +4962,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101494206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -33.07, y: -0.13, z: 0}
-  m_LocalScale: {x: 0.9752194, y: 0.95385724, z: 0.8755}
+  m_LocalPosition: {x: -33.02, y: -0.36, z: 0}
+  m_LocalScale: {x: 0.91298234, y: 0.89298344, z: 0.81962687}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1522226886}
@@ -23070,8 +23070,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 30, y: 29.34747, z: 1}
-  m_Center: {x: 1.9, y: 5.3262653, z: 0}
+  m_Size: {x: 28.045013, y: 29.34747, z: 1}
+  m_Center: {x: 2.0004425, y: 5.3262653, z: 0}
 --- !u!1001 &928758162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30312,11 +30312,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7a343ffc127af4b41b1e509d55d21956, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -87.47
+      value: -76.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7a343ffc127af4b41b1e509d55d21956, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.19
+      value: -22.37
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7a343ffc127af4b41b1e509d55d21956, type: 3}
       propertyPath: m_LocalPosition.z
@@ -32343,8 +32343,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323402629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0754, y: -0.259, z: 0}
+  m_LocalScale: {x: 0.9110136, y: 0.9110136, z: 0.9110136}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2650642}
@@ -32550,7 +32550,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327757996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.05, y: -4.5, z: 0}
+  m_LocalPosition: {x: -10.34, y: -4.54, z: 0}
   m_LocalScale: {x: 1.8798361, y: 2.6066415, z: 2.8491}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -32667,7 +32667,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnlyAffectsPlayer: 1
-  ExitOffset: {x: 0, y: -1.2, z: 0}
+  ExitOffset: {x: 0, y: 0, z: 0}
   TeleportationMode: 0
   TweenCurve: 4
   MaintainXEntryPositionOnExit: 0
@@ -39822,8 +39822,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 30.651749, y: 29.34747, z: 1}
-  m_Center: {x: 1.8505402, y: 5.3262653, z: 0}
+  m_Size: {x: 27.998322, y: 29.34747, z: 1}
+  m_Center: {x: 1.9932098, y: 5.3262653, z: 0}
 --- !u!4 &1641493406
 Transform:
   m_ObjectHideFlags: 0
@@ -46758,7 +46758,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 30, y: 17}
+  m_Size: {x: 28.130798, y: 17}
   m_EdgeRadius: 0
 --- !u!4 &1864077036
 Transform:
@@ -53149,7 +53149,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2, y: 0}
+  m_Offset: {x: 1.9999847, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -53160,7 +53160,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 30, y: 17}
+  m_Size: {x: 27.95877, y: 17}
   m_EdgeRadius: 0
 --- !u!114 &726372095707499336
 MonoBehaviour:
@@ -54207,7 +54207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8040196610978649192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.973297, y: 5.2321167, z: 1.5703125}
+  m_LocalPosition: {x: 15.823334, y: 5.2321167, z: 1.5703125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55446,7 +55446,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9006745139142300899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.52, y: -4.5, z: 0}
+  m_LocalPosition: {x: -10.29, y: -3.82, z: 0}
   m_LocalScale: {x: 2.5565999, y: 2.5565999, z: 2.5565999}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -55556,7 +55556,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnlyAffectsPlayer: 1
-  ExitOffset: {x: 0, y: -1.2, z: 0}
+  ExitOffset: {x: 0, y: -1, z: 0}
   TeleportationMode: 0
   TweenCurve: 4
   MaintainXEntryPositionOnExit: 0
