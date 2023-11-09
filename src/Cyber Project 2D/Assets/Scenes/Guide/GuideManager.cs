@@ -36,7 +36,9 @@ public class GuideManager : MonoBehaviour
         if (state == 0)
         {
             //苏醒
-            NarratorSystem.Instance.SendActionInfo("这里是医院吗？你感觉好渴，好想喝水。");
+            NarratorSystem.Instance.SendActionInfo("这里就是精神病院吗？看来，得靠自己逃出去了。");
+            NarratorSystem.Instance.SendActionInfo("证据和判决都很反常，得去想办法多了解一些信息");
+            NarratorSystem.Instance.SendActionInfo("你感觉好渴，好想喝水。");
             NarratorSystem.Instance.SendActionInfo("房间里有杯子，去找找看吧。");//左右移动按键提示、空格互动按键提示
             NarratorSystem.Instance.ShowInfo(2);
             state++;
