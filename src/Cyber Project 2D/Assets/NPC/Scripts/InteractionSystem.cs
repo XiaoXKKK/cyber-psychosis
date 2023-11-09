@@ -30,8 +30,6 @@ public class InteractionSystem : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
-            GameObject.Find("Player").GetComponent<CharacterButtonActivation>().enabled = false;
         if (other.gameObject.tag == "Player" && Input.GetKey(KeyCode.Space) && canTrigger)
         {
             InteractionList.SetActive(true);
@@ -44,7 +42,6 @@ public class InteractionSystem : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            GameObject.Find("Player").GetComponent<CharacterButtonActivation>().enabled = true;
             if (!canTrigger)
                 StartCoroutine(FadeOutCoroutine());
             GameObject.Find("SpaceCanvas").GetComponent<CanvasGroup>().DOFade(0, 0.1f);
