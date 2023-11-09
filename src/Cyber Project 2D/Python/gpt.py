@@ -22,7 +22,8 @@ def sentiment_analysis(dialog):
     things = [dialog, "友好,让人开心,充满信任的对话", "矛盾,让人难受,充满怀疑的对话"]
     response = openai.Embedding.create(
         input = things,
-        model = "text-embedding-ada-002"
+        model = "text-embedding-ada-002",
+        timeout = 3
     )
 
     # 提取两个文本的嵌入向量

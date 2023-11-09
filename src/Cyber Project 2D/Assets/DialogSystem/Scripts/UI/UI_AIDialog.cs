@@ -71,6 +71,10 @@ public class UI_AIDialog : MonoBehaviour
     }
     public void Send()
     {
+        if (input.text == "")
+        {
+            return;
+        }
         if (NewDaySystem.Instance.AItimes > 0)
         {
             NewDaySystem.Instance.AItimes--;

@@ -27,7 +27,7 @@ public class UI_Dialog : MonoBehaviour
     private UI_Click ui_Click;
     public DialogConf aiend;
     public Character player;
-
+    public string nowstr;
     private void OnEnable()
     {
         if (player)
@@ -75,7 +75,7 @@ public class UI_Dialog : MonoBehaviour
         currindex = 0;
         StartDialog(currconf, currindex);
     }
-    Coroutine coroutine;
+    public Coroutine coroutine;
     private void StartDialog(DialogConf conf, int index)
     {
         DialogModel model = conf.dialogs[index];
@@ -93,6 +93,7 @@ public class UI_Dialog : MonoBehaviour
         // 说话
         if (coroutine != null)
             StopCoroutine(coroutine);
+        nowstr = model.NPCContent;
         coroutine = StartCoroutine(DoMainTextEF(model.NPCContent));
 
         if (model.selects.Count == 0)
@@ -230,17 +231,19 @@ public class UI_Dialog : MonoBehaviour
         currindex = index;
         StartDialog(currconf, currindex);
     }
+    public bool running = false;
     IEnumerator DoMainTextEF(string txt)
     {
         // 字符数量决定了 content的高 每23个字符增加25的高
         float addHeight = txt.Length / 23 + 1;
+        running = true;
         content.sizeDelta = new Vector2(content.sizeDelta.x, addHeight*25);
 
         string currStr ="";
         for (int i = 0; i < txt.Length; i++)
         {
             currStr += txt[i];
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.03f);
             mainText.text = currStr;
             // 每满23个字，下移一个距离 25
             if (i>23*3&&i % 23 == 0)
@@ -248,5 +251,12 @@ public class UI_Dialog : MonoBehaviour
                 content.anchoredPosition = new Vector2(content.anchoredPosition.x, content.anchoredPosition.y+25);
             }
         }
+        running = false;
+    }
+    public void StopEffect()
+    {
+        running = false;
+        StopCoroutine(coroutine);
+        mainText.text = nowstr;
     }
 }

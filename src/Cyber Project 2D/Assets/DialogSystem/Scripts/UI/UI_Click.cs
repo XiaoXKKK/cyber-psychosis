@@ -14,7 +14,14 @@ public class UI_Click : MonoBehaviour, IPointerClickHandler
                 UI_Dialog.Instance.ExitDialogEvent();
             }
             else
-            UI_Dialog.Instance.ParseDialogEvent(DialogEventEnum.NextDialog, null);
+            {
+                if (UI_Dialog.Instance.running)
+                {
+                    UI_Dialog.Instance.StopEffect();
+                }
+                else 
+                    UI_Dialog.Instance.ParseDialogEvent(DialogEventEnum.NextDialog, null);
+            }
         }
     }
 }
