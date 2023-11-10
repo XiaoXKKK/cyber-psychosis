@@ -442,6 +442,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 602829f9ca7f0fb4dacdfe9fd150f524, type: 2}
   - {fileID: 11400000, guid: d19c542cf3e435443bd905d7468571b6, type: 2}
   black: {fileID: 1711413805}
+  onSceneLoaded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &2075832201
 Transform:
   m_ObjectHideFlags: 0
@@ -1204,6 +1207,8 @@ MonoBehaviour:
   items: {fileID: 0}
   aiend: {fileID: 0}
   player: {fileID: 0}
+  nowstr: 
+  running: 0
 --- !u!223 &1984430447893811228
 Canvas:
   m_ObjectHideFlags: 0

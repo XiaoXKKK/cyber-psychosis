@@ -457,7 +457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38886319}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.8, y: 16.41, z: 0}
+  m_LocalPosition: {x: -9.8, y: 16, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -502,7 +502,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52533298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.89, y: -4.62, z: 0}
+  m_LocalPosition: {x: 1.89, y: -4.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1039,7 +1039,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77063628}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 41.1, y: 16.44, z: 0}
+  m_LocalPosition: {x: 41.1, y: 16, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3620,7 +3620,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330449002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.44, y: -4.49, z: 0}
+  m_LocalPosition: {x: -6.44, y: -4.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -12506,7 +12506,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407272853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.99, y: -4.58, z: 0}
+  m_LocalPosition: {x: 1.99, y: -4.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -13498,7 +13498,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532909403}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.98, y: -4.51, z: 0}
+  m_LocalPosition: {x: -15.98, y: -4.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -13806,7 +13806,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552709880}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.92, y: -4.58, z: 0}
+  m_LocalPosition: {x: 9.92, y: -4.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -14754,7 +14754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642698504}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -123.700005, y: 8.66, z: 0}
+  m_LocalPosition: {x: -121, y: 10, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15084,7 +15084,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699564656}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.91, y: -4.46, z: 0}
+  m_LocalPosition: {x: 13.91, y: -4.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -15119,7 +15119,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   UnlimitedActivations: 1
   MaxNumberOfActivations: 0
-  DelayBetweenUses: 0
+  DelayBetweenUses: 2
   DisableAfterUse: 0
   InputType: 0
   InputButton: Interact
@@ -15161,7 +15161,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OnlyAffectsPlayer: 1
-  ExitOffset: {x: 0, y: -0.5, z: 0}
+  ExitOffset: {x: 0, y: -0.875, z: 0}
   TeleportationMode: 0
   TweenCurve: 4
   MaintainXEntryPositionOnExit: 0
@@ -15206,7 +15206,7 @@ MonoBehaviour:
   MoveMaskMethod: 1
   MoveMaskDuration: 0.4
   FreezeTime: 0
-  FreezeCharacter: 0
+  FreezeCharacter: 1
   ResetMovementStateOnTeleport: 1
   InitialDelay: 0
   FadeOutDuration: 0.5
@@ -15823,7 +15823,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753348223}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.23, y: -4.49, z: 0}
+  m_LocalPosition: {x: -20.23, y: -4.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -15858,7 +15858,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   UnlimitedActivations: 1
   MaxNumberOfActivations: 0
-  DelayBetweenUses: 0
+  DelayBetweenUses: 2
   DisableAfterUse: 0
   InputType: 0
   InputButton: Interact
@@ -15900,7 +15900,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OnlyAffectsPlayer: 1
-  ExitOffset: {x: 0, y: -0.5, z: 0}
+  ExitOffset: {x: 0, y: -0.875, z: 0}
   TeleportationMode: 0
   TweenCurve: 4
   MaintainXEntryPositionOnExit: 0
@@ -15945,7 +15945,7 @@ MonoBehaviour:
   MoveMaskMethod: 1
   MoveMaskDuration: 0.4
   FreezeTime: 0
-  FreezeCharacter: 0
+  FreezeCharacter: 1
   ResetMovementStateOnTeleport: 1
   InitialDelay: 0
   FadeOutDuration: 0.5
@@ -16205,7 +16205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778685043}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.93, y: -4.52, z: 0}
+  m_LocalPosition: {x: 9.93, y: -4.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -16636,7 +16636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831848355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.98, y: -4.53, z: 0}
+  m_LocalPosition: {x: -15.98, y: -4.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -17404,7 +17404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904041759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -128.32, y: 9.98, z: 0}
+  m_LocalPosition: {x: -128.47, y: 10.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17951,7 +17951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038883022}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.57, y: -4.52, z: 0}
+  m_LocalPosition: {x: -6.57, y: -4.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -17986,7 +17986,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   UnlimitedActivations: 1
   MaxNumberOfActivations: 0
-  DelayBetweenUses: 0
+  DelayBetweenUses: 2
   DisableAfterUse: 0
   InputType: 0
   InputButton: Interact
@@ -18016,7 +18016,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnlyAffectsPlayer: 1
-  ExitOffset: {x: 0, y: -0.5, z: 0}
+  ExitOffset: {x: 0, y: -0.875, z: 0}
   TeleportationMode: 0
   TweenCurve: 4
   MaintainXEntryPositionOnExit: 0
@@ -18061,7 +18061,7 @@ MonoBehaviour:
   MoveMaskMethod: 1
   MoveMaskDuration: 0.4
   FreezeTime: 0
-  FreezeCharacter: 0
+  FreezeCharacter: 1
   ResetMovementStateOnTeleport: 1
   InitialDelay: 0
   FadeOutDuration: 0.5
@@ -23278,9 +23278,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 726372095809612465}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -61.14, y: 14.51, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -61.14, y: 16, z: 0}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 726372095521024696}
   - {fileID: 726372095707499339}
@@ -23636,7 +23636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3057585063622498712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -123.700005, y: 8.66, z: 0}
+  m_LocalPosition: {x: -121, y: 10, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24591,7 +24591,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8040196610978649192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -49.626694, y: 5.2321033, z: 1.9203129}
+  m_LocalPosition: {x: -48.92169, y: 6.6221027, z: 1.8828125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25681,7 +25681,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9006745139142300899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.52, y: -4.72, z: 0}
+  m_LocalPosition: {x: -11.54, y: -4.5, z: 0}
   m_LocalScale: {x: 2.5565999, y: 2.5565999, z: 2.5565999}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -25761,7 +25761,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   UnlimitedActivations: 1
   MaxNumberOfActivations: 0
-  DelayBetweenUses: 0
+  DelayBetweenUses: 2
   DisableAfterUse: 0
   InputType: 0
   InputButton: Interact
@@ -25803,7 +25803,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnlyAffectsPlayer: 1
-  ExitOffset: {x: 0, y: -0.5, z: 0}
+  ExitOffset: {x: 0, y: -0.875, z: 0}
   TeleportationMode: 0
   TweenCurve: 4
   MaintainXEntryPositionOnExit: 0
@@ -25848,7 +25848,7 @@ MonoBehaviour:
   MoveMaskMethod: 1
   MoveMaskDuration: 0.4
   FreezeTime: 0
-  FreezeCharacter: 0
+  FreezeCharacter: 1
   ResetMovementStateOnTeleport: 1
   InitialDelay: 0
   FadeOutDuration: 0.5

@@ -245,11 +245,6 @@ public class UI_Dialog : MonoBehaviour
             currStr += txt[i];
             yield return new WaitForSeconds(0.03f);
             mainText.text = currStr;
-            // 每满23个字，下移一个距离 25
-            if (i>23*3&&i % 23 == 0)
-            {
-                content.anchoredPosition = new Vector2(content.anchoredPosition.x, content.anchoredPosition.y+25);
-            }
         }
         running = false;
     }
