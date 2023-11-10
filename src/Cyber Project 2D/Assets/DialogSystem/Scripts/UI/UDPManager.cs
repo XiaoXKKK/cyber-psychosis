@@ -65,7 +65,7 @@ public class UDPManager : MonoBehaviour
         RecviveThread = new Thread(() =>
         {
             //实例化一个IPEndPoint，任意IP和对应端口 端口自行修改
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 5768);
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Loopback, 5768);
             UdpClient udpReceive = new UdpClient(endPoint);
             UDPData data = new UDPData(endPoint, udpReceive);
             //开启异步接收

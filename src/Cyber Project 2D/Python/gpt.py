@@ -8,9 +8,8 @@ def use_chatgpt(prompt):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "你是一个角色扮演专家。下面是一个游戏场景的世界观和角色描述，你要记住下面的信息进行角色扮演任务。"},
-            {"role": "user", "content": prompt}
+            {"role": "user","content": prompt}
         ],
-        timeout = 3
     )
     response = completion.choices[0].message["content"]
     print(response)
@@ -23,7 +22,6 @@ def sentiment_analysis(dialog):
     response = openai.Embedding.create(
         input = things,
         model = "text-embedding-ada-002",
-        timeout = 3
     )
 
     # 提取两个文本的嵌入向量
@@ -58,7 +56,7 @@ def use_chatgpt_with_retry(prompt, max_retries=1):
                 print("API调用失败")
                 # 在这里加入固定对话，防止角色对话过于出戏
                 # 比如 game_print("你说的东西我不清楚，别跟我聊了")
-                return "我不想你和聊天"
+                return "我现在有其他事要忙"
 
 class Agent:
     def __init__(self, name,seed_memory, language_style, current_state, prefix_list):
@@ -144,7 +142,7 @@ class Agent:
             print("好感度-5")
             self.current_state -= 5
 
-    def ask_gpt(self, input_content,history,now_state=None):
+    def ask_gpt(self, input_content, history,now_state=None):
         if not now_state is None:
             self.current_state = now_state
 

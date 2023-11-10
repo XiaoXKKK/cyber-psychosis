@@ -190,11 +190,13 @@ public class UI_AIDialog : MonoBehaviour
             }
         }
     }
-    void OnApplicationQuit()
+    public void OnApplicationQuit()
     {
         // 在应用程序退出前执行一些代码
         UnityEngine.Debug.Log("应用程序即将退出，清理所有Python进程");
         // 结束所有Python进程
         Kill_All_Python_Process();
+        // 关掉UDP
+        udpClient.Close();
     }
 }
