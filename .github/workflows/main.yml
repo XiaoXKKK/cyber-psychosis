@@ -23,15 +23,16 @@ jobs:
         python-version: "3.10"
     - name: Install dependencies
       run: |
-        cd "src/Cyber Project 2D/Python"
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Build with pyinstaller
       run: |
         pyinstaller -Fw gpt_test.py
+      working-directory: ./src/Cyber Project 2D/Python
     - name: Package 
       run: |
         tar -a -c -f Windows.zip -C ./dist/ gpt_test.exe
+      working-directory: ./src/Cyber Project 2D/Python  
     - name: Create Release
       uses: softprops/action-gh-release@v1
       with:
