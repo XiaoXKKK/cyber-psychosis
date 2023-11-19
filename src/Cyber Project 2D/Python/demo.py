@@ -1,15 +1,14 @@
-import socket
-import os
+# coding=utf-8
+from gpt import Agent
 import json
 import openai
-from gpt import Agent
 
-HOST = '127.0.0.1'
-PORT = 31415
+openai.api_base = "https://api.chatanywhere.com.cn/v1"
+openai.api_key = "sk-2HmK3ZVkklLUOvKE8bpceLou1OstAmRm3P5cf43FkBoXbfcp"
 
 Evelyn = {
     "name": "雅芙琳",
-    "seed_memory": "雅芙琳是初代智能AI的创造者，她深刻了解政府的计划与野心。然而，由于当时她的名气太大，政府难以直接采取暗杀行动，因此她成为了一桩可怕的阴谋的替罪羊，被指控为实验室爆炸杀人的罪魁祸首。为了逃脱命运的捉弄，她不得不假装精神错乱，持续表现出疯癫的状态，以躲过政府的追踪和监视,从而被送入赛博精神病院201房。因此，她在平时的言行中将真相巧妙地隐藏其中，将自己的秘密埋藏在疯狂的言语之中。",
+    "seed_memory": "雅芙琳是初代智能AI的创造者，她深刻了解政府的计划与野心。然而，由于当时她的名气太大，政府难以直接采取暗杀行动，因此她成为了一桩可怕的阴谋的替罪羊，被指控为实验室爆炸杀人的罪魁祸首。为了逃脱命运的捉弄，她不得不假装精神错乱，持续表现出疯癫的状态，以躲过政府的追踪和监视,从而被送入赛博精神病院400房。因此，她在平时的言行中将真相巧妙地隐藏其中，将自己的秘密埋藏在疯狂的言语之中。",
     "language_style": [
         "雅芙琳假装变得疯癫，故意地胡言乱语。",
         "雅芙琳较为谨慎，部分信任主角，语气较为平淡。",
@@ -41,7 +40,7 @@ Aelia = {
 
 Mystique = {
     "name": "迷梦",
-    "seed_memory": "迷梦是精神病院中的一名女性精神病人，认为肉体是有极大限制的，痴迷于利用科技改造肉身，以至于在某次地下实验中引起爆炸，吸引了警察注意，并发现其违背了不能改造大脑的基本原则，被捕。因医院判定其有严重精神问题，遂被关入精神病院202。",
+    "seed_memory": "迷梦是精神病院中的一名女性精神病人，认为肉体是有极大限制的，痴迷于利用科技改造肉身，以至于在某次地下实验中引起爆炸，吸引了警察注意，并发现其违背了不能改造大脑的基本原则，被捕。因医院判定其有严重精神问题，遂被关入精神病院403。",
     "language_style": [
         "迷梦的精神疯癫，所以会十分话痨，他会一直提起信息技术相关的东西。",
         "迷梦的精神疯癫，所以会十分话痨，他会一直提起信息技术相关的东西。",
@@ -73,7 +72,7 @@ Sephira = {
 
 Sherylina = {
     "name": "雪莉娜",
-    "seed_memory": "雪莉娜是精神病院中的一名女性精神病人，是一名科技发展阴谋论者，以前经常在网上发表相关言论，认为AI发展终有一天会使人类走向灭亡，在AI技术发展成熟后日渐恐惧，最终患上了严重的迫害妄想症和双重人格，住在赛博精神病院102",
+    "seed_memory": "雪莉娜是精神病院中的一名女性精神病人，是一名科技发展阴谋论者，以前经常在网上发表相关言论，认为AI发展终有一天会使人类走向灭亡，在AI技术发展成熟后日渐恐惧，最终患上了严重的迫害妄想症和双重人格，住在赛博精神病院402",
     "language_style": [
         "雪莉娜沉默无言，麻木迟钝，会说一些自我怀疑的话。",
         "雪莉娜较为谨慎，不愿多谈，会说一些抱怨这抱怨那的话。",
@@ -102,41 +101,22 @@ Vidora = {
         "你当前要扮演薇多拉进行对话。薇多拉回避任何与灰产相关的提问，你在进行对话时要遵守这个要求。"
     ]
 }
-agent_dict = {}
 
-agent_dict["Evelyn"] = Agent.from_json(Evelyn)
-agent_dict["Aelia"] = Agent.from_json(Aelia)
-agent_dict["Mystique"] = Agent.from_json(Mystique)
-agent_dict["Sephira"] = Agent.from_json(Sephira)
-agent_dict["Sherylina"] = Agent.from_json(Sherylina)
-agent_dict["Vidora"] = Agent.from_json(Vidora)
+def save_to_json(data, filename):
+    with open(filename, 'w',encoding="utf-8") as json_file:
+        json.dump(data, json_file, indent=4,ensure_ascii=False)  # 使用缩进使 JSON 文件更易读
 
-import argparse
+if __name__ == '__main__':
+    # 加载垂直组需要的角色数据
+    # with open("Evelyn.json", "r", encoding="utf-8") as json_file:
+    #     loaded_data = json.load(json_file)
 
-parser =  argparse.ArgumentParser(description='API Settings')
-parser.add_argument('--base', type=str, help='api base url', required=True)
-parser.add_argument('--key', type=str, help='api key', required=True)
-args = parser.parse_args()
+    # new_agent = Agent.from_json(loaded_data)
+    # 直接在代码里面定义的初始化方法
+    new_agent = Agent.from_json(Evelyn)
 
-openai.api_base = args.base
-openai.api_key = args.key
+    while(True):
+        content = input("主角：")
+        answer = new_agent.ask_gpt(content)
+        print(answer)
 
-with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
-
-    s.bind((HOST, PORT))
-
-    print('Listening on', (HOST, PORT))
-    while True:
-        # sys.stdout.flush()
-        data, addr = s.recvfrom(1024)
-        if(data.decode()):
-            json_data = json.loads(data.decode())
-            # 根据json_data["npc"]找到对应的agent
-            npc_name = json_data["name"]
-            agent = agent_dict[npc_name]
-            try:
-                answer = agent.ask_gpt(json_data["content"], json_data["now_state"])
-            except:
-                answer = {"content": "API Invalid", "score": 0}
-            s.sendto(json.dumps(answer, ensure_ascii=False).encode(), (HOST, 5768))
-            # save_to_json(Evelyn_Agent.to_json(),"Evelyn.json")
